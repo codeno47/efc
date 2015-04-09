@@ -1,0 +1,413 @@
+﻿@using Telerik.Web.Data;
+@using TTsys.Models;
+@model timetrackBO
+
+@{
+    ViewBag.Title = "LoadDetails";
+}
+<link href="~/Content/commonstyle.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/themes/base/jquery.ui.dialog.css" rel="stylesheet" />
+<h2>Tracker</h2>
+<br />
+
+
+
+@*<div id="Grid11">
+  @using (Html.BeginForm("LoadDetails", "TTLog", Model))
+{
+
+    @(Html.Kendo().Grid<TTsys.Models.timetrackBO>(Model)
+    .Name("timetrackergrid")
+    .HtmlAttributes(new { style = "width: 750px;height:430px;" })
+    .Events(e => e
+            .DataBound("grid_dataBound")
+            .Change("grid_valuechange")
+       .Edit("grid_valuechange")
+       .Change("grid_valuechange")
+       )
+    .Columns(columns =>
+    {
+
+
+        columns.Bound(p => p.ProjectName).Width(100);
+
+        columns.Bound(p => p.Day2).Width(5).Title("TUE-22");
+
+        columns.Bound(p => p.Day1).Width(5).Title("MON-21").ClientTemplate(Html.Kendo().NumericTextBox().Name("Day1").Max(8).Min(0).ToClientTemplate().ToHtmlString());
+        columns.Bound(p => p.Day2).Width(5).Title("TUE-22").ClientTemplate(Html.Kendo().NumericTextBox().Name("Day2").Max(8).Min(0).ToClientTemplate().ToHtmlString());
+        columns.Bound(p => p.Day3).Width(5).Title("WED-23").ClientTemplate(Html.Kendo().NumericTextBox().Name("Day3").Max(8).Min(0).ToClientTemplate().ToHtmlString());
+        columns.Bound(p => p.Day4).Width(5).Title("THU-24").ClientTemplate(Html.Kendo().NumericTextBox().Name("Day4").Max(8).Min(0).ToClientTemplate().ToHtmlString());
+        
+       
+        
+    }
+    )
+   
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(10)
+        .ServerOperation(false)
+        .Batch(true)
+            .Model(model =>
+                {
+                    model.Id(p => p.ProjectName);
+                    model.Field(p => p.ProjectName).Editable(false);
+
+                })
+            )
+            
+                   .Pageable(pageable => pageable
+        .Refresh(true)
+        .ButtonCount(5))
+           .Selectable(selectable => selectable
+             .Mode(GridSelectionMode.Single).Type(GridSelectionType.Cell))
+                    .Editable(editable => editable.Mode(GridEditMode.InCell))
+    
+    )
+
+  }
+</div>
+
+
+  <div class="out test">
+
+<table id="testtable" border="1" onkeydown="OnkeyDown()" onchange="OnChange()" >
+    <tr id="baserow" >
+        <th>
+           ProjectName
+        </th>
+        <th>
+             @Model[0].Day1Name
+        </th>
+        <th>
+             @Model[0].Day2Name
+        </th>
+         <th >
+            @Model[0].Day3Name
+        </th>
+         <th >
+             @Model[0].Day4Name
+        </th>
+         <th >
+             @Model[0].Day5Name
+        </th>
+        
+    </tr>
+    <tbody>
+@{
+    for (int i = 0; i < Model.Count(); i++)
+    {
+      
+
+        
+        <tr class="@("row"+ i.ToString())" onclick="">
+            <td class="cellprojectname">
+             @Html.EditorFor(m=> m[i].ProjectName)
+            </td>
+            <td class="cellday1">
+             @Html.EditorFor(m=> m[i].Day1)
+            </td>
+            <td class="cellday2">
+             @Html.EditorFor(m=> m[i].Day2)
+            </td>
+           <td class="cellday3">
+             @Html.EditorFor(m=> m[i].Day3)
+            </td>
+           <td class="cellday4">
+             @Html.EditorFor(m=> m[i].Day4)
+            </td>
+           <td class="cellday5">
+             @Html.EditorFor(m=> m[i].Day5)
+            </td>
+           
+        </tr>
+    }
+    
+    
+}
+
+        </tbody>
+
+
+</table>
+
+  </div>
+
+*@
+
+<div id="Buttonscol">
+    <form action="~/TTLog/LoadPrev_NextDetails" method="post">
+        <div>
+        
+            <input id="prev" type="submit" value="<<<" name="Command"   />
+            &nbsp
+            <input id="next" type="submit" value=">>>" name="Command" class="btnNext" />
+        </div>
+        <input id="currentstartdate1" type="hidden" value="@(Model.dateEffortlist[0].effortDate)" class="classCurrentdate" />
+       
+
+   </form>
+</div>
+
+<div>
+    <table id="effort" border="1">
+       
+        <tr id="baserow" >
+        @{
+            <th>
+                Project Name
+            </th>
+            for (int i = 0; i < Model.dateEffortlist.Count; i++)
+            {
+        <th>
+            @Model.dateEffortlist[i].effortDate.ToString("dd/MM/yyyy")
+        </th>
+            }
+    
+        }
+            </tr>
+
+        @*@using (Html.BeginForm("popusing", "TTLog", Model, FormMethod.Post))
+        { }*@
+
+
+        <tr id="linkRow">
+            <td>
+
+            </td>
+            @{
+                for (int i = 0; i < Model.dateEffortlist.Count; i++)
+                {
+                   
+                    <td>
+                      @Html.ActionLink(
+                        linkText: @Model.dateEffortlist[i].netEffort.ToString("0.00"),
+                        actionName: "popupLog",
+                        controllerName: "TTLog",
+                        routeValues: new { data = Model.dateEffortlist[i].effortDate },
+                        htmlAttributes: new { @class="detail_link"})
+                      
+                       
+                    </td>
+                } 
+            }
+        </tr>
+
+         @{
+            for (int i = 0; i < Model.timetrklist.Count(); i++)
+            {
+      
+
+        
+        <tr class="@("row" + i.ToString())"  >
+            <td class="cellprojectname">
+             @Html.EditorFor(m => m.timetrklist[i].ProjectName)
+            </td>
+            <td class="cellday1" aria-valuemin="0">
+             @Html.EditorFor(m => m.timetrklist[i].Day1)
+            </td>
+            <td class="cellday2" >
+             @Html.EditorFor(m => m.timetrklist[i].Day2)
+            </td>
+           <td class="cellday3">
+             @Html.EditorFor(m => m.timetrklist[i].Day3)
+            </td>
+           <td class="cellday4" >
+             @Html.EditorFor(m => m.timetrklist[i].Day4)
+            </td>
+           <td class="cellday5">
+             @Html.EditorFor(m => m.timetrklist[i].Day5)
+            </td>
+            <td class="cellday6">
+             @Html.EditorFor(m => m.timetrklist[i].Day6)
+            </td>
+             <td class="cellday7" aria-valuemin="0">
+             @Html.EditorFor(m => m.timetrklist[i].Day7)
+            </td>
+        </tr>
+            }
+
+        
+            }
+
+        
+        
+    </table>
+</div>
+
+
+<div >
+@* @using (Html.BeginForm("popupLog", "TTLog", FormMethod.Post, Model))
+ {
+     <fieldset>
+<legend>
+
+     Information
+</legend>
+     
+    
+     <p>
+
+     
+     
+         </p>
+         </fieldset>
+ }*@
+    </div>
+
+@* @using (Ajax.BeginForm("showPopUP",new AjaxOptions{ UpdateTargetId="ID",OnSuccess="OnSuccess"}) )
+ { }*@
+
+
+ 
+
+
+<style>
+    .k-grid td {
+        background: -moz-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.05)), color-stop(100%,rgba(0,0,0,0.15)));
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.15) 100%);
+        background: -o-linear-gradient(top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.15) 100%);
+        background: -ms-linear-gradient(top, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.15) 100%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.15) 100%);
+        padding: 20px;
+    }
+
+    
+</style>
+
+<div id="popuptest",title="Pop Up..."></div>
+   <script type="text/javascript">
+       var linkobj;
+       $(function () {
+
+
+           $("#popuptest").dialog({
+               autoOpen: false,
+               width: 400,
+               modal: true
+           });
+
+       });
+
+
+
+       $(".detail_link").on('click', function () {
+           linkobj = $(this);
+           var dialogdiv = $("#popuptest");
+           var viewurl = linkobj.attr("href");
+           $.get(viewurl, function (data) {
+               dialogdiv.html(data);
+
+              
+           });
+           dialogdiv.dialog("open");
+           return false;
+       });
+
+
+       $(document).ready(function () {
+
+         
+           var currentdate = new Date();
+           var currday = currentdate.getDate();
+           var currmonth = currentdate.getMonth();
+           var curryear = currentdate.getFullYear()
+           var testvar1 = $("#Buttonscol").find('.classCurrentdate').val()
+           var checkdate = new Date($("#Buttonscol").find('.classCurrentdate').val())
+           var checkdatesday = checkdate.getDate();
+
+           for (var i = 0; i < 7; i++) {
+               //fullyear ==, month==, getdate>=
+               if ((checkdate.getDate() == currday) &&
+                   (checkdate.getMonth() == currmonth) &&
+                    (checkdate.getFullYear() == curryear)) {
+                   $('.btnNext').prop('disabled', true);
+                   break;
+               }
+               else {
+                   checkdate.setDate(checkdatesday + 1);
+                   checkdatesday = checkdate.getDate();
+               }
+
+           }
+
+
+       });
+
+       var colindex = 0
+       var rowindex = 0
+           var maxValuethatcanbehold = 0
+           var oldvalue=0
+
+       $('#effort td').on('keydown', function () {
+           colindex = $(this).index()
+          
+       });
+
+      
+
+       $('#effort tr').keydown(function (keyval) {
+          
+
+            //if ((keyval.keyCode == 110) || (keyval.keyCode == 96) || (keyval.keyCode == 97) || (keyval.keyCode == 98)
+            //   || (keyval.keyCode == 99) || (keyval.keyCode == 100) || (keyval.keyCode == 101) || (keyval.keyCode == 102)
+            //   || (keyval.keyCode == 103) || (keyval.keyCode == 104) || (keyval.keyCode == 105) || (keyval.keyCode == 8) || (keyval.keyCode == 46)) {
+           var entereddata = parseFloat($(this).find('td:eq(' + colindex + ') input').val());
+           //alert(entereddata);
+           if (true) {
+    
+          
+                rowindex = $(this).index();
+
+                var tempoldvalue=parseFloat($(this).find('td:eq(' + colindex + ') input').val())
+                if (isNaN(tempoldvalue)) {
+                    oldvalue = 0
+                }
+                else {
+                    oldvalue = tempoldvalue
+                }
+               
+
+               var chtest = 0
+               $('#effort tr').each(function (i,el) {
+                   if (i > 1) {
+                       var iteratingrowvalue = parseFloat($(this).find('td:eq(' + colindex + ') input').val());
+
+                       if (isNaN(iteratingrowvalue)) {
+                           chtest += 0;
+                       }
+                       else { chtest += iteratingrowvalue }
+                       
+                      //alert(chtest)
+                   }
+
+               });
+
+               maxValuethatcanbehold = 10.5 - chtest
+               //alert('max'+maxValuethatcanbehold)
+           }
+           else {
+               return false;
+           }
+       });
+
+
+       $('#effort tr').on('change', function () {
+
+           var currentvalue = parseFloat($(this).find('td:eq(' + colindex + ') input').val())
+           //alert(currentvalue)
+           if (currentvalue >( maxValuethatcanbehold+oldvalue)) {
+            
+               $(this).find('td:eq(' + colindex + ') input').val(parseFloat(oldvalue+maxValuethatcanbehold))
+           }
+       });
+
+
+       
+    
+
+</script>

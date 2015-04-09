@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FB292B9A-8747-4845-9753-FE7215747E79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{118E89A2-08E9-4DB6-B4C2-37FE90C7A13C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Build.Version.Template.ProcessTemplate", "src\EFC.Build.Version.Template.ProcessTemplate\EFC.Build.Version.Template.ProcessTemplate.csproj", "{D1C3B3E3-F6F5-435B-A16A-115CCE468F68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Build.Version.Template.TFSActions", "src\TFSActions\EFC.Build.Version.Template.TFSActions.csproj", "{325ECD88-F7B3-4387-8F8F-A95CD7F685B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1C3B3E3-F6F5-435B-A16A-115CCE468F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1C3B3E3-F6F5-435B-A16A-115CCE468F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1C3B3E3-F6F5-435B-A16A-115CCE468F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1C3B3E3-F6F5-435B-A16A-115CCE468F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325ECD88-F7B3-4387-8F8F-A95CD7F685B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325ECD88-F7B3-4387-8F8F-A95CD7F685B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325ECD88-F7B3-4387-8F8F-A95CD7F685B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325ECD88-F7B3-4387-8F8F-A95CD7F685B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1C3B3E3-F6F5-435B-A16A-115CCE468F68} = {FB292B9A-8747-4845-9753-FE7215747E79}
+		{325ECD88-F7B3-4387-8F8F-A95CD7F685B5} = {FB292B9A-8747-4845-9753-FE7215747E79}
+	EndGlobalSection
+EndGlobal

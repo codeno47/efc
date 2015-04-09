@@ -1,0 +1,168 @@
+﻿@using Telerik.Web.Data;
+@model ServerPerformance.Models.ServerCollection
+
+@{
+    ViewBag.Title = "ServerStatus";
+    <link href="~/Content/assets/css/CommonStyle.css" rel="stylesheet" />
+}
+@{
+        this.Session.RemoveAll();
+    }
+
+<script src="~/Content/jquery.timer.js"></script>
+<script type="text/javascript">
+
+
+    var timer = $.timer(function () {
+       @{
+           bool ShowServer10 = false;
+           bool ShowServer7 = false;
+           bool ShowServer6=false;
+           try
+           {
+               if (Model[0] != null)
+               {
+                   ShowServer10 = true;
+               }
+               if (Model[1] != null)
+               {
+                   ShowServer7 = true;
+               }
+               if (Model[2] != null)
+               {
+                   ShowServer6 = true;
+               }
+           }
+           catch 
+           {
+               
+           }
+          
+           }
+        var url1 = "@(Html.Raw(Url.Action("RefreshGaugeForServer10", new { show10 = ShowServer10, show7 = ShowServer7, show6 = ShowServer6 })))";
+            $("#PartialGaugeContainer").load(url1);
+
+            var url2 = "@(Html.Raw(Url.Action("RefreshGaugeForServer7", new { show10 = ShowServer10, show7 = ShowServer7, show6 = ShowServer6 })))";
+            $("#PartialGaugeContainer2").load(url2)
+
+            var url3 = "@(Html.Raw(Url.Action("RefreshGaugeForServer6", new { show10 =ShowServer10, show7 = ShowServer7, show6 = ShowServer6 })))";
+            $("#PartialGaugeContainer3").load(url3)
+
+        });
+
+
+        timer.set({ time: 5000, autostart: true });
+
+</script>
+
+<div class="container">
+
+<div style="float:right;margin:20px 0px 20px 0px;" >  
+<input id="Button1" type="button" value="Log Out" class="vishnu-test"/>
+</div>
+
+<div style="width:800px; height:auto; float:left; margin:0px 0px 20px 0px;">
+<h2>Server Performance Status </h2>
+
+<h3>Select Server</h3>
+
+@using (Html.BeginForm("ServerStatus", "Status", Model))
+{
+
+    for (int i = 0; i < Model.Count; i++)
+    {
+    @Html.CheckBoxFor(x => x[i].ShowServer, new { id = "showserver" + i })
+    @Html.DisplayFor(x => x[i].Name)
+    @Html.HiddenFor(x => x[i].Name)
+    }
+
+
+}
+
+
+
+    </div>
+
+
+
+@*button for log out*@
+
+<br />
+<br />
+
+<table border="1">
+
+    <tr>
+
+
+        @{
+            int modelcount = 1;
+
+
+
+            for (int i = 0; i < Model.Count; i++)
+            {
+                if (Model[i].ShowServer)
+                {
+            <td valign="top">@Html.Partial("~/Views/Shared/_PartialPage" + modelcount + ".cshtml", Model[i])</td>
+                    modelcount += 1;
+                }
+            }
+        }
+
+
+    </tr>
+
+</table>
+</div>
+@Html.Hidden("RedirectTo", Url.Action("LoadLogin", "Login"));
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(function () {
+
+            $('#showserver0').change(function () {
+                $(this).closest("form").submit();
+            });
+        }
+        );
+
+        $(function () {
+            $('#showserver1').change(function () {
+                $(this).closest("form").submit();
+            });
+        }
+        );
+        $(function () {
+            $('#showserver2').change(function () {
+                $(this).closest("form").submit();
+            });
+        }
+        );
+
+
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#Button1').click(function () {
+                //alert('hi');
+                @*var url3 = "@(Html.Raw(Url.Action("LoadLogin", "Login")))";
+               $("login").load(url3)*@
+                //location.href = '<%= Url.Action("LoadLogin", "Login") %>';
+                //Html.Action("LoadLogin", "Login");
+                var url = $("#RedirectTo").val();
+                location.href = url;
+           }
+           )
+       });
+    </script>
+}
+
+
+
+
+
+
+

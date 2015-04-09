@@ -1,0 +1,93 @@
+﻿@using Telerik.Web.Data;
+@using TTsys.Models;
+@model IQueryable<LeaveTracker>
+
+@{
+    ViewBag.Title = "LoadSearchScreen";
+}
+
+
+<script src="code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+
+<h2>LoadSearchScreen</h2>
+
+
+   
+<div>
+       
+        @using (Html.BeginForm(actionName: "submit", controllerName: "TTracker"))
+        {
+            
+    @(Html.Kendo().DatePicker()
+    .Name("datepicker") //The name of the datepicker is mandatory. It specifies the "id" attribute of the widget.
+    .Min(new DateTime(2010, 1, 1)) //Set min date of the datepicker
+    .Max(new DateTime(2099, 12, 31)) //Set min date of the datepicker
+    .Value(ViewBag.DateValue)
+    .Format("dd/MM/yyyy")
+   
+    )
+       
+        <input id="Submit1" type="submit" value="Search" />
+        
+  
+
+      @(Html.Kendo().Grid<LeaveTracker>(Model)
+    .Name("timetrackergrid")
+    .HtmlAttributes(new { style = "width: 1050px; backcolor: blue" })
+
+     .Columns(columns =>
+    {
+
+        columns.Bound(p => p.UserId).Width(100);
+
+        columns.Template(p => @Html.ActionLink(p.UserName, "showPopUp", routeValues: new { userId = p.UserId }, htmlAttributes: new { @class = "detail_link" })).Width(100);
+
+
+        columns.Bound(p => p.NetEffort).Format("{0:n2}").Width(100);
+
+        columns.Bound(p => p.Leave).Width(100);
+    }
+
+))
+       } 
+    </div>
+
+
+<div id="popuptest",title="Pop Up..."></div>
+   <script type="text/javascript">
+       var linkobj;
+       $(function () {
+
+
+           $("#popuptest").dialog({
+               autoOpen: false,
+               width: 400,
+               modal: true
+           });
+
+       });
+
+
+
+       $(".detail_link").on('click', function () {
+           linkobj = $(this);
+           var dialogdiv = $("#popuptest");
+           var viewurl = linkobj.attr("href");
+           $.get(viewurl, function (data) {
+               dialogdiv.html(data);
+
+
+           });
+          
+           dialogdiv.dialog("open");
+           return false;
+       });
+
+       $("#Submit1").on('click', function () {
+          
+       });
+
+</script>

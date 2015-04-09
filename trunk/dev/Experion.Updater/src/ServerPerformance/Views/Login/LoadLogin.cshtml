@@ -1,0 +1,85 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AECOM - Login</title>
+</head>
+<body>
+
+@{
+    ViewBag.Title = "LoadLogin";
+    
+}
+
+    @{
+        this.Session.RemoveAll();
+        }
+
+<div class="master-container" id="login">
+
+     <section id="main-section">
+         <div class="content-wrap">
+             
+         <div class="login-wrap">
+             
+        <div class="login-header gradient">
+                       <h3>Login</h3> 
+                           
+                    </div>
+                @using (Html.BeginForm("LoadServerStatusScreen","Login",FormMethod.Post,null))
+                {
+
+                    <div class="login-credential-wrap">
+                            <div class="login-credential-label">UserName </div>
+                        <div class="login-credential-input-wrap">
+                            <input id="txtUserName" name="UserName" type="text" class="other-input" maxlength="100" />
+                            </div>
+                        </div>
+                    
+               
+                    
+                        <div class="login-credential-wrap">
+                            <div class="login-credential-label">Password </div>
+                        <div class="login-credential-input-wrap">
+                            <input id="txtPswd" name="Password" type="password" class="other-input" maxlength="100" />
+                            </div>
+                        </div>
+                <div>
+    
+                </div>
+                  
+               
+                      <div>
+
+                            <div class="full-width-btn-wrap">
+                                <input id="btnSubmit" type="submit" value="Submit" class="btn-blue" /></div>
+                        </div> 
+                    
+                }
+             </div>
+             </div>
+         </section>
+
+</div>
+    </body>
+</html>
+
+
+ <script type="text/javascript">
+        @if (TempData["InvalidCredentials"] != null)
+        {
+            <text>
+     alert('Invalid username or password');
+            </text>
+        }
+     </script>
+
+<script type="text/javascript">
+        @if (TempData["NotOperational"] != null)
+        {
+            <text>
+    alert('Server is not operational ,please try after sometime');
+    </text>
+        }
+     </script>

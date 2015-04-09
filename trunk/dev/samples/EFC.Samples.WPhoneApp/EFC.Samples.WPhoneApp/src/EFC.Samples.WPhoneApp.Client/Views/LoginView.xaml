@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="EFC.Samples.WPhone.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ignore="http://www.ignore.com"
+             mc:Ignorable="d ignore"
+             DataContext="{Binding Login, Source={StaticResource Locator}}">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="39,225,0,0" TextWrapping="Wrap" Text="User Name" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="66" Margin="163,197,0,0" TextWrapping="Wrap"
+                 Text="{Binding Model.Username, Mode=TwoWay}" VerticalAlignment="Top" Width="267"/>
+        <TextBlock HorizontalAlignment="Left" Margin="39,352,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="65" Margin="163,316,0,0" TextWrapping="Wrap" 
+                 Text="{Binding Model.Password, Mode=TwoWay}" VerticalAlignment="Top" Width="267"/>
+        <Button Content="Login" Command="{Binding LoginButtonCommand}" HorizontalAlignment="Left" Margin="145,617,0,0" VerticalAlignment="Top" Height="86" Width="227"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TrainingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DepartmentData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeDepartmentMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EmployeeDepartmentMapping_DepartmentData">
+          <End Role="DepartmentData" Type="Self.DepartmentData" Multiplicity="1" />
+          <End Role="EmployeeDepartmentMapping" Type="Self.EmployeeDepartmentMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartmentData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentMapping">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartmentMapping_EmployeeData">
+          <End Role="EmployeeData" Type="Self.EmployeeData" Multiplicity="1" />
+          <End Role="EmployeeDepartmentMapping" Type="Self.EmployeeDepartmentMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentMapping">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TrainingModelStoreContainer">
+          <EntitySet Name="DepartmentData" EntityType="Self.DepartmentData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeData" EntityType="Self.EmployeeData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeDepartmentMapping" EntityType="Self.EmployeeDepartmentMapping" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EmployeeDepartmentMapping_DepartmentData" Association="Self.FK_EmployeeDepartmentMapping_DepartmentData">
+            <End Role="DepartmentData" EntitySet="DepartmentData" />
+            <End Role="EmployeeDepartmentMapping" EntitySet="EmployeeDepartmentMapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartmentMapping_EmployeeData" Association="Self.FK_EmployeeDepartmentMapping_EmployeeData">
+            <End Role="EmployeeData" EntitySet="EmployeeData" />
+            <End Role="EmployeeDepartmentMapping" EntitySet="EmployeeDepartmentMapping" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TrainingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DepartmentData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="EmployeeDepartmentMappings" Relationship="Self.FK_EmployeeDepartmentMapping_DepartmentData" FromRole="DepartmentData" ToRole="EmployeeDepartmentMapping" />
+        </EntityType>
+        <EntityType Name="EmployeeData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="EmployeeDepartmentMappings" Relationship="Self.FK_EmployeeDepartmentMapping_EmployeeData" FromRole="EmployeeData" ToRole="EmployeeDepartmentMapping" />
+        </EntityType>
+        <EntityType Name="EmployeeDepartmentMapping">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DepartmentData" Relationship="Self.FK_EmployeeDepartmentMapping_DepartmentData" FromRole="EmployeeDepartmentMapping" ToRole="DepartmentData" />
+          <NavigationProperty Name="EmployeeData" Relationship="Self.FK_EmployeeDepartmentMapping_EmployeeData" FromRole="EmployeeDepartmentMapping" ToRole="EmployeeData" />
+        </EntityType>
+        <Association Name="FK_EmployeeDepartmentMapping_DepartmentData">
+          <End Role="DepartmentData" Type="Self.DepartmentData" Multiplicity="1" />
+          <End Role="EmployeeDepartmentMapping" Type="Self.EmployeeDepartmentMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartmentData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentMapping">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeDepartmentMapping_EmployeeData">
+          <End Role="EmployeeData" Type="Self.EmployeeData" Multiplicity="1" />
+          <End Role="EmployeeDepartmentMapping" Type="Self.EmployeeDepartmentMapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeData">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeDepartmentMapping">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SampleContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DepartmentDatas" EntityType="Self.DepartmentData" />
+          <EntitySet Name="EmployeeDatas" EntityType="Self.EmployeeData" />
+          <EntitySet Name="EmployeeDepartmentMappings" EntityType="Self.EmployeeDepartmentMapping" />
+          <AssociationSet Name="FK_EmployeeDepartmentMapping_DepartmentData" Association="Self.FK_EmployeeDepartmentMapping_DepartmentData">
+            <End Role="DepartmentData" EntitySet="DepartmentDatas" />
+            <End Role="EmployeeDepartmentMapping" EntitySet="EmployeeDepartmentMappings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeDepartmentMapping_EmployeeData" Association="Self.FK_EmployeeDepartmentMapping_EmployeeData">
+            <End Role="EmployeeData" EntitySet="EmployeeDatas" />
+            <End Role="EmployeeDepartmentMapping" EntitySet="EmployeeDepartmentMappings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TrainingModelStoreContainer" CdmEntityContainer="SampleContainer">
+          <EntitySetMapping Name="DepartmentDatas">
+            <EntityTypeMapping TypeName="TrainingModel.DepartmentData">
+              <MappingFragment StoreEntitySet="DepartmentData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeDatas">
+            <EntityTypeMapping TypeName="TrainingModel.EmployeeData">
+              <MappingFragment StoreEntitySet="EmployeeData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeDepartmentMappings">
+            <EntityTypeMapping TypeName="TrainingModel.EmployeeDepartmentMapping">
+              <MappingFragment StoreEntitySet="EmployeeDepartmentMapping">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

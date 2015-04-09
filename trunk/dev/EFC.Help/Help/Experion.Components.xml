@@ -1,0 +1,1261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Experion.Components</name>
+  </assembly>
+  <members>
+    <member name="T:Experion.Components.Aspect.HandleExceptionAttribute">
+      <summary> 
+            Aspect that, when applied on a method, catches all its exceptions, 
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Aspect.HandleExceptionAttribute.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Aspect.HandleExceptionAttribute" /> class.
+            </summary>
+      <param name="policyName">Name of the policy.</param>
+    </member>
+    <member name="M:Experion.Components.Aspect.HandleExceptionAttribute.OnException(PostSharp.Aspects.MethodExecutionArgs)">
+      <summary> 
+            Method invoked upon failure of the method to which the current 
+            aspect is applied. 
+            </summary>
+      <param name="args">Information about the method being executed.</param>
+    </member>
+    <member name="T:Experion.Components.ComponentModel.DisposableBase">
+      <summary>
+            The disposable abstract base class.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.ComponentModel.DisposableBase.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Experion.Components.ComponentModel.DisposableBase</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.ComponentModel.DisposableBase.CheckDisposed">
+      <summary>
+            Throws exception if this instance is disposed or about to be disposed.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.ComponentModel.DisposableBase.Dispose">
+      <summary>
+            Releases the unmanaged and managed resources.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.ComponentModel.DisposableBase.Dispose(System.Boolean)">
+      <summary>
+            Releases the unmanaged resources and optionally releases the managed resources.
+            </summary>
+      <param name="disposing">
+        <c>True</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+    </member>
+    <member name="M:Experion.Components.ComponentModel.DisposableBase.Finalize">
+      <summary>
+            Releases unmanaged resources and performs other cleanup operations before the object is reclaimed by garbage collection.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.ComponentModel.DisposableBase.OnDisposed">
+      <summary>
+            Called when disposed.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.ComponentModel.DisposableBase.OnDisposing">
+      <summary>
+            Called when disposing.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Data.DataServiceBase">
+      <summary>
+            The base class for data service operations which is used to handle simple data operations.
+            
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.DataServiceBase.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Experion.Components.Data.DataServiceBase</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Data.DataServiceBase.Add``2(``0)">
+      <summary>
+            Adds a data item to the data store.
+            
+            </summary>
+      <param name="data">The data item to add.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>
+            The data item.
+            </returns>
+    </member>
+    <member name="M:Experion.Components.Data.DataServiceBase.Delete``2(``0)">
+      <summary>
+            Deletes data item from the data store.
+            
+            </summary>
+      <param name="data">The data item to delete.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Data.DataServiceBase.GetAll``2">
+      <summary>
+            Returns list of data items from the data store.
+            
+            </summary>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>
+            Strongly typed <see cref="T:System.Collections.Generic.IEnumerable`1" />.
+            </returns>
+    </member>
+    <member name="M:Experion.Components.Data.DataServiceBase.GetById``2(``1)">
+      <summary>
+            Returns a data item that has the specified id.
+            
+            </summary>
+      <param name="id">The identifier.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>
+            The data item.
+            </returns>
+    </member>
+    <member name="M:Experion.Components.Data.DataServiceBase.GetBySpecification``2(Experion.Components.Data.Specification{``0})">
+      <summary>
+            Returns a list of data items from the data store based on the given specification.
+            
+            </summary>
+      <param name="specification">The specification.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The type of identifier.</typeparam>
+      <returns>
+            The data items matching the specification.
+            </returns>
+    </member>
+    <member name="M:Experion.Components.Data.DataServiceBase.Update``2(``0)">
+      <summary>
+            Updates data item within the the data store.
+            
+            </summary>
+      <param name="data">The data item to update.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+    </member>
+    <member name="T:Experion.Components.Data.EfDataService">
+      <summary>
+            Implementation of <see cref="T:Experion.Components.Data.DataServiceBase" /> class that uses Entity Framework
+            for the database operations.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.EfDataService.#ctor(System.Data.Entity.DbContext)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Data.EfDataService" /> class.
+            </summary>
+      <param name="context">The db context.</param>
+    </member>
+    <member name="M:Experion.Components.Data.EfDataService.Add``2(``0)">
+      <summary>
+            Adds a data item to the data store.
+            </summary>
+      <param name="data">The data item to insert.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>The data item.</returns>
+    </member>
+    <member name="P:Experion.Components.Data.EfDataService.DbContext">
+      <summary>
+            Gets the entity framework Data Context.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.EfDataService.Delete``2(``0)">
+      <summary>
+            Deletes data item from the data store.
+            </summary>
+      <param name="data">The data item to delete.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Data.EfDataService.GetAll``2">
+      <summary>
+            Returns list of data items from the data store.
+            </summary>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>Strongly typed <see cref="T:System.Collections.Generic.IEnumerable`1" />.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.EfDataService.GetById``2(``1)">
+      <summary>
+            Returns a data item that has the specified id.
+            </summary>
+      <param name="id">The identifier.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>The data item.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.EfDataService.GetBySpecification``2(Experion.Components.Data.Specification{``0})">
+      <summary>
+            Returns a list of data items from the data store based on the given specification.
+            </summary>
+      <param name="specification">The specification.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The type of identifier.</typeparam>
+      <returns>The data items matching the specification.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.EfDataService.Update``2(``0)">
+      <summary>
+            Updates data item within the the data store.
+            </summary>
+      <param name="data">The data item to update.</param>
+      <typeparam name="TData">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+    </member>
+    <member name="T:Experion.Components.Data.EFRepository`2">
+      <summary>
+            Implementation of <see cref="T:Experion.Components.Data.RepositoryBase`2" /> class that uses Entity Framework
+            for the repository operations.
+            </summary>
+      <typeparam name="TEntity">The type of entity that the repository encapsulates.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the entity.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepository`2.#ctor(System.Data.Entity.DbContext)">
+      <summary>
+            Creates a new instance of EFRepository.
+            </summary>
+      <param name="context">The DbContext.</param>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepository`2.Add(`0)">
+      <summary>
+            Add an entity to the repository.
+            </summary>
+      <param name="entity">The entity to add.</param>
+      <returns>The entity.</returns>
+    </member>
+    <member name="P:Experion.Components.Data.EFRepository`2.DbContext">
+      <summary>
+            Gets the entity framework Data Context.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepository`2.Delete(`0)">
+      <summary>
+            Mark an entity for deletion in the repository.
+            </summary>
+      <param name="entity">The entity to delete.</param>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepository`2.GetAll(Experion.Components.Enum.FilterType)">
+      <summary>
+            Returns list of entities from the repository or store.
+            </summary>
+      <param name="filterType">The filter type.</param>
+      <returns>Strongly typed <see cref="T:System.Collections.Generic.IEnumerable`1" />.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepository`2.GetById(`1)">
+      <summary>
+            Returns an entity that has the specified entity key.
+            </summary>
+      <param name="id">Entity key value.</param>
+      <returns>Entity.</returns>
+      <exception cref="T:System.NotSupportedException">Occurs if the Entity Type(TEntity) is not stored in the given repository.</exception>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepository`2.GetBySpecification(Experion.Components.Data.Specification{`0},Experion.Components.Enum.FilterType)">
+      <summary>
+            Returns a list of entities from the repository based on the given specification.
+            </summary>
+      <param name="specification">The specification.</param>
+      <param name="filterType">The filter type.</param>
+      <returns>The list of entities.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepository`2.Update(`0)">
+      <summary>
+            Update an entity in the repository.
+            </summary>
+      <param name="entity">Entity instance.</param>
+    </member>
+    <member name="T:Experion.Components.Data.EFRepositoryContext`1">
+      <summary>
+            Implements the <see cref="T:Experion.Components.Data.IRepositoryContext" /> interface to provide an implementation
+            that manages the repository context.
+            </summary>
+      <typeparam name="TContext">The type of DBContext.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepositoryContext`1.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Data.EFRepositoryContext`1" /> class.
+            </summary>
+    </member>
+    <member name="E:Experion.Components.Data.EFRepositoryContext`1.AfterCommit">
+      <summary>
+            This event is raised after changes are saved to persistant storage.
+            </summary>
+    </member>
+    <member name="E:Experion.Components.Data.EFRepositoryContext`1.BeforeCommit">
+      <summary>
+            This event is raised before changes are saved to persistant storage.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepositoryContext`1.Commit">
+      <summary>
+            Flushes the changes made in the unit of work to the data store.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Data.EFRepositoryContext`1.Commit</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepositoryContext`1.CreateContext">
+      <summary>
+            Creates the entity framework data dontext.
+            </summary>
+      <returns>The entity framework data dontext.</returns>
+    </member>
+    <member name="P:Experion.Components.Data.EFRepositoryContext`1.DbContext">
+      <summary>
+            Gets the entity framework data dontext.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepositoryContext`1.Dispose">
+      <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepositoryContext`1.GetRepository``2">
+      <summary>
+            This function is used to create the specified instance of type TEntity.
+            </summary>
+      <typeparam name="TEntity">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>Instance of Repository.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepositoryContext`1.Refresh">
+      <summary>
+            Refreshes this Data context with original values from database.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.EFRepositoryContext`1.Rollback">
+      <summary>
+            Rollback all the changes made in the unit of work.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Data.IDbContext">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:Experion.Components.Data.IDbContext</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Data.IDbContext.Dispose">
+      <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.IDbContext.SaveChanges">
+      <summary>
+            Saves the changes.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Data.IDbContext.SaveChanges</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:Experion.Components.Data.IEntity`1">
+      <summary>
+            Base contract for storing and retrieving the unique identifier of an entity.
+            </summary>
+      <typeparam name="TIdentifier">The type of identifier that uniquely identifes the entity.</typeparam>
+    </member>
+    <member name="P:Experion.Components.Data.IEntity`1.Id">
+      <summary>
+            Gets an identifier that uniquely identifies an entity.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Data.IRepository`2">
+      <summary>
+            The repository interface defines a standard contract that repository components should implement.
+            
+            </summary>
+      <typeparam name="TEntity">The type of entity that the repository encapsulates.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the entity.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Data.IRepository`2.Add(`0)">
+      <summary>
+            Add entity to the repository.
+            
+            </summary>
+      <param name="entity">The entity to add.</param>
+      <returns>
+            The added entity.
+            </returns>
+    </member>
+    <member name="M:Experion.Components.Data.IRepository`2.Delete(`0)">
+      <summary>
+            Mark entity to be deleted within the repository.
+            
+            </summary>
+      <param name="entity">The entity to delete.</param>
+    </member>
+    <member name="M:Experion.Components.Data.IRepository`2.GetAll(Experion.Components.Enum.FilterType)">
+      <summary>
+            Returns list of entities from the repository or store.
+            
+            </summary>
+      <param name="filterType">The filter type.</param>
+      <returns>
+            Strongly typed <see cref="T:System.Collections.Generic.IEnumerable`1" />.
+            </returns>
+    </member>
+    <member name="M:Experion.Components.Data.IRepository`2.GetById(`1)">
+      <summary>
+            Returns an entity that has the specified entity key.
+            
+            </summary>
+      <param name="id">Entity key value.</param>
+      <returns>
+            The entity.
+            </returns>
+    </member>
+    <member name="M:Experion.Components.Data.IRepository`2.GetBySpecification(Experion.Components.Data.Specification{`0},Experion.Components.Enum.FilterType)">
+      <summary>
+            Returns a list of entities from the repository based on the given specification.
+            
+            </summary>
+      <param name="specification">The specification.</param>
+      <param name="filterType">The filter type.</param>
+      <returns>
+            The entity matching the specification.
+            </returns>
+    </member>
+    <member name="E:Experion.Components.Data.IRepository`2.RepositoryChanged">
+      <summary>
+            Raised after repository is changed.
+            
+            </summary>
+    </member>
+    <member name="E:Experion.Components.Data.IRepository`2.RepositoryChanging">
+      <summary>
+            Raised before repository is going to be changed.
+            
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.IRepository`2.Update(`0)">
+      <summary>
+            Updates entity within the the repository.
+            
+            </summary>
+      <param name="entity">The entity to update.</param>
+    </member>
+    <member name="T:Experion.Components.Data.IRepositoryContext">
+      <summary>
+            The interface that manages the repository context.
+            
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.IRepositoryContext.GetRepository``2">
+      <summary>
+            This method will return the repository of the specified entity.
+            
+            </summary>
+      <typeparam name="TEntity">The type of the data item.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the data item.</typeparam>
+      <returns>
+            Instance of the repository.
+            </returns>
+    </member>
+    <member name="T:Experion.Components.Data.IUnitOfWork">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:Experion.Components.Data.IUnitOfWork</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Data.IUnitOfWork.Commit">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:Experion.Components.Data.IUnitOfWork.Commit</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Data.IUnitOfWork.Commit</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:Experion.Components.Data.RepositoryBase`2">
+      <summary>
+            An abstract base class for <see cref="T:Experion.Components.Data.IRepository`2" />.
+            </summary>
+      <typeparam name="TEntity">The type of entity that the repository encapsulates.</typeparam>
+      <typeparam name="TIdentifier">The identifier that uniquely identifes the entity.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.#ctor">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Experion.Components.Data.RepositoryBase`2</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.Add(`0)">
+      <summary>
+            Add entity to the repository.
+            </summary>
+      <param name="entity">The entity to add.</param>
+      <returns>The added entity.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.Delete(`0)">
+      <summary>
+            Mark entity to be deleted within the repository.
+            </summary>
+      <param name="entity">The entity to delete.</param>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.GetAll(Experion.Components.Enum.FilterType)">
+      <summary>
+            Returns list of entities from the repository or store.
+            </summary>
+      <param name="filterType">The filter type.</param>
+      <returns>Strongly typed <see cref="T:System.Collections.Generic.IEnumerable`1" />.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.GetById(`1)">
+      <summary>
+            Returns an entity that has the specified entity key.
+            </summary>
+      <param name="id">Entity key value.</param>
+      <returns>The entity.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.GetBySpecification(Experion.Components.Data.Specification{`0},Experion.Components.Enum.FilterType)">
+      <summary>
+            Returns a list of entities from the repository based on the given specification.
+            </summary>
+      <param name="specification">The specification.</param>
+      <param name="filterType">The filter type.</param>
+      <returns>The entity matching the specification.</returns>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.OnRepositoryChanged(Experion.Components.Enum.RepositoryChangeType,`0)">
+      <summary>
+            Raises <see cref="E:Experion.Components.Data.RepositoryBase`2.RepositoryChanged" /> event.
+            </summary>
+      <param name="changeType">Change type.</param>
+      <param name="entity">The entity instance.</param>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.OnRepositoryChanging(Experion.Components.Enum.RepositoryChangeType,`0)">
+      <summary>
+            Raises <see cref="E:Experion.Components.Data.RepositoryBase`2.RepositoryChanging" /> event.
+            </summary>
+      <param name="changeType">Change type.</param>
+      <param name="entity">The enitity instance.</param>
+    </member>
+    <member name="E:Experion.Components.Data.RepositoryBase`2.RepositoryChanged">
+      <summary>
+            Raised after repository is changed.
+            </summary>
+    </member>
+    <member name="E:Experion.Components.Data.RepositoryBase`2.RepositoryChanging">
+      <summary>
+            Raised before repository is going to be changed.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.RepositoryBase`2.Update(`0)">
+      <summary>
+            Updates entity within the the repository.
+            </summary>
+      <param name="entity">The entity to update.</param>
+    </member>
+    <member name="T:Experion.Components.Data.Specification`1">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:Experion.Components.Data.Specification`1</parameter>
+          </include>
+        </markup>
+      </summary>
+      <typeparam name="T">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>T</parameter>
+            <parameter>T:Experion.Components.Data.Specification`1</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:Experion.Components.Data.Specification`1.#ctor">
+      <summary>
+            Initializes a new instance of the Specification class.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Data.Specification`1.#ctor(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+      <summary>
+            Initializes a new instance of the Specification class.
+            </summary>
+      <param name="predicate">Expression predicate.</param>
+    </member>
+    <member name="M:Experion.Components.Data.Specification`1.IsSatisfiedBy(`0)">
+      <summary>
+            Evaluates the specification against an instance.
+            </summary>
+      <param name="candidate">The instance against which the specificaton is to be evaluated.</param>
+      <returns>Should return <c>true</c> if the specification was satisfied by the entity, else <c>false</c>.</returns>
+    </member>
+    <member name="P:Experion.Components.Data.Specification`1.Predicate">
+      <summary>
+            Gets the expression predicate.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Data.UnitOfWork">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:Experion.Components.Data.UnitOfWork</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Data.UnitOfWork.#ctor(System.Data.Objects.ObjectContext,System.Int32)">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocConstructor">
+            <parameter>Experion.Components.Data.UnitOfWork</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="context">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>context</parameter>
+            <parameter>M:Experion.Components.Data.UnitOfWork.#ctor(System.Data.Objects.ObjectContext,System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="id">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>id</parameter>
+            <parameter>M:Experion.Components.Data.UnitOfWork.#ctor(System.Data.Objects.ObjectContext,System.Int32)</parameter>
+          </include>
+        </markup>
+      </param>
+    </member>
+    <member name="M:Experion.Components.Data.UnitOfWork.Commit">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:Experion.Components.Data.UnitOfWork.Commit</parameter>
+          </include>
+        </markup>
+      </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Data.UnitOfWork.Commit</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="P:Experion.Components.Data.UnitOfWork.Context">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:Experion.Components.Data.UnitOfWork.Context</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Data.UnitOfWork.Dispose">
+      <summary>
+        <markup>
+          <include item="SMCAutoDocDispose">
+            <parameter>Experion.Components.Data.UnitOfWork</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="P:Experion.Components.Data.UnitOfWork.Id">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>P:Experion.Components.Data.UnitOfWork.Id</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="T:Experion.Components.Enum.ConnectionStringKeys">
+      <summary>
+            Connection string key names.
+            
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Enum.ConnectionStringKeys.Catalog">
+      <summary>
+            Key name of initial catalog to be used in DbConnectionStringBuilder.
+            
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Enum.ConnectionStringKeys.DataSource">
+      <summary>
+            Key name of data source to be used in DbConnectionStringBuilder.
+            
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Enum.ConnectionStringKeys.Password">
+      <summary>
+            Key name of password to be used in DbConnectionStringBuilder.
+            
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Enum.ConnectionStringKeys.UserId">
+      <summary>
+            Key name of user id to be used in DbConnectionStringBuilder.
+            
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Enum.DialogResults">
+      <summary>
+            DialogResults.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Enum.DialogResults.Cancel"></member>
+    <member name="F:Experion.Components.Enum.DialogResults.OK"></member>
+    <member name="F:Experion.Components.Enum.DialogResults.No"></member>
+    <member name="T:Experion.Components.Enum.FilterType">
+      <summary>
+            Impersonation types available to use with security impersonation.
+            
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Enum.FilterType.FilterCommitted"></member>
+    <member name="F:Experion.Components.Enum.FilterType.FilterAll"></member>
+    <member name="T:Experion.Components.Enum.RepositoryChangeType">
+      <summary>
+            Repository change types.
+            
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Enum.RepositoryChangeType.None"></member>
+    <member name="F:Experion.Components.Enum.RepositoryChangeType.Get"></member>
+    <member name="F:Experion.Components.Enum.RepositoryChangeType.Add"></member>
+    <member name="F:Experion.Components.Enum.RepositoryChangeType.Update"></member>
+    <member name="F:Experion.Components.Enum.RepositoryChangeType.Delete"></member>
+    <member name="T:Experion.Components.Events.Event">
+      <summary>
+            The event helper class.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Events.Event.Raise(System.ComponentModel.CancelEventHandler,System.Object,System.ComponentModel.CancelEventArgs)">
+      <summary>
+            Raises the specified handler.
+            </summary>
+      <param name="handler">The handler.</param>
+      <param name="sender">The sender.</param>
+      <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs" /> instance containing the event data.</param>
+    </member>
+    <member name="M:Experion.Components.Events.Event.Raise(System.ComponentModel.PropertyChangedEventHandler,System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+      <summary>
+            Raises the specified handler.
+            </summary>
+      <param name="handler">The handler.</param>
+      <param name="sender">The sender.</param>
+      <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data.</param>
+    </member>
+    <member name="M:Experion.Components.Events.Event.Raise(System.EventHandler,System.Object)">
+      <summary>
+            Raises the specified handler.
+            </summary>
+      <param name="handler">The handler.</param>
+      <param name="sender">The sender.</param>
+    </member>
+    <member name="M:Experion.Components.Events.Event.Raise(System.EventHandler,System.Object,System.EventArgs)">
+      <summary>
+            Raises the specified handler.
+            </summary>
+      <param name="handler">The handler.</param>
+      <param name="sender">The sender.</param>
+      <param name="e">The <see cref="T:System.EventArgs" /> instance containing the event data.</param>
+    </member>
+    <member name="M:Experion.Components.Events.Event.Raise``1(System.EventHandler{``0},System.Object,``0)">
+      <summary>
+            Raises the specified handler.
+            </summary>
+      <param name="handler">The handler.</param>
+      <param name="sender">The sender.</param>
+      <param name="e">The <typeparamref name="TEventArgs" /> instance containing the event data.</param>
+      <typeparam name="TEventArgs">The type of the event args.</typeparam>
+    </member>
+    <member name="T:Experion.Components.Events.RecomposeEventArgs`1">
+      <summary>
+            The recompose event args.
+            </summary>
+      <typeparam name="T">The type of elements.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Events.RecomposeEventArgs`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0})">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Events.RecomposeEventArgs`1" /> class.
+            </summary>
+      <param name="addValues">The add values.</param>
+      <param name="removeValues">The remove values.</param>
+    </member>
+    <member name="P:Experion.Components.Events.RecomposeEventArgs`1.AddValues">
+      <summary>
+            Gets the add values.
+            </summary>
+    </member>
+    <member name="P:Experion.Components.Events.RecomposeEventArgs`1.RemoveValues">
+      <summary>
+            Gets the remove values.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Events.RepositoryChangeEventArgs">
+      <summary>
+            Repository change event args.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Events.RepositoryChangeEventArgs.#ctor(Experion.Components.Enum.RepositoryChangeType,System.Object)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Events.RepositoryChangeEventArgs" /> class.
+            </summary>
+      <param name="changeType">The change type.</param>
+      <param name="entity">The domain entity instance.</param>
+    </member>
+    <member name="P:Experion.Components.Events.RepositoryChangeEventArgs.ChangeType">
+      <summary>
+            Gets the change type.
+            </summary>
+    </member>
+    <member name="P:Experion.Components.Events.RepositoryChangeEventArgs.Entity">
+      <summary>
+            Gets the repository entity instance.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Exception.ObjectNotDefinedException">
+      <summary>
+            ObjectNotDefinedException.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Exception.ObjectNotDefinedException.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Exception.ObjectNotDefinedException" /> class.
+            </summary>
+      <param name="message">The message that describes the error.</param>
+    </member>
+    <member name="M:Experion.Components.Exception.ObjectNotDefinedException.#ctor(System.String,System.Exception)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Exception.ObjectNotDefinedException" /> class.
+            </summary>
+      <param name="message">The message.</param>
+      <param name="exception">The exception.</param>
+    </member>
+    <member name="T:Experion.Components.Extensibility.IExtensionPoint">
+      <summary>
+            The extension point interface.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Extensibility.IExtensionPoint.AsContractTyped``1">
+      <summary>
+            Returns the contract typed extension point.
+            </summary>
+      <typeparam name="TContract">The type of the contract.</typeparam>
+      <returns>The contract typed extension point.</returns>
+    </member>
+    <member name="M:Experion.Components.Extensibility.IExtensionPoint.AsContractTyped(System.Type)">
+      <summary>
+            Returns the contract typed extension point.
+            </summary>
+      <param name="contractType">Type of the contract.</param>
+      <returns>The contract typed extension point.</returns>
+    </member>
+    <member name="P:Experion.Components.Extensibility.IExtensionPoint.ContractName">
+      <summary>
+            Gets the name of the contract.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Extensibility.IExtensionPoint`1">
+      <summary>
+            The extension point interface.
+            </summary>
+      <typeparam name="TContract">The type of the contract.</typeparam>
+    </member>
+    <member name="P:Experion.Components.Extensibility.IExtensionPoint`1.ContractName">
+      <summary>
+            Gets the name of the contract.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Extensibility.IExtensionPointDefinition">
+      <summary>
+            The extension point definition interface.
+            </summary>
+    </member>
+    <member name="P:Experion.Components.Extensibility.IExtensionPointDefinition.ContractName">
+      <summary>
+            Gets the name of the contract.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Extensibility.IRecomposable`1">
+      <summary>
+            The recomposable interface.
+            </summary>
+      <typeparam name="T">The type of elements.</typeparam>
+    </member>
+    <member name="E:Experion.Components.Extensibility.IRecomposable`1.Recomposed">
+      <summary>
+            Occurs when recomposed.
+            </summary>
+    </member>
+    <member name="E:Experion.Components.Extensibility.IRecomposable`1.Recomposing">
+      <summary>
+            Occurs when recomposing.
+            </summary>
+    </member>
+    <member name="P:Experion.Components.Extensibility.IRecomposable`1.Values">
+      <summary>
+            Gets the values.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Localization.ILocalizationProvider">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:Experion.Components.Localization.ILocalizationProvider</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Localization.ILocalizationProvider.GetLocalizedString(System.String)">
+      <summary>
+            Gets the localized string.
+            </summary>
+      <param name="key">The key.</param>
+      <returns>Localized string.</returns>
+    </member>
+    <member name="P:Experion.Components.Localization.ILocalizationProvider.ResourceManager">
+      <summary>
+            Gets or sets the resource manager.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Localization.LocalizationProvider">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>T:Experion.Components.Localization.LocalizationProvider</parameter>
+          </include>
+        </markup>
+      </summary>
+    </member>
+    <member name="M:Experion.Components.Localization.LocalizationProvider.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Localization.LocalizationProvider" /> class.
+            </summary>
+      <param name="resourcePath">The resource path.</param>
+    </member>
+    <member name="M:Experion.Components.Localization.LocalizationProvider.GetLocalizedString(System.String)">
+      <summary>
+            Gets the localized string.
+            </summary>
+      <param name="key">The key.</param>
+      <returns>Localized string.</returns>
+    </member>
+    <member name="P:Experion.Components.Localization.LocalizationProvider.ResourceManager">
+      <summary>
+            Gets or sets the resource manager.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Logging.ActivityEvent">
+      <summary>
+            User activity actions.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.ActivityEvent.Create"></member>
+    <member name="F:Experion.Components.Logging.ActivityEvent.Delete"></member>
+    <member name="F:Experion.Components.Logging.ActivityEvent.Update"></member>
+    <member name="F:Experion.Components.Logging.ActivityEvent.Retrieve"></member>
+    <member name="T:Experion.Components.Logging.ExperionLogger">
+      <summary>
+            Logger.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Logging.ExperionLogger.WriteActivityLog(Experion.Components.Logging.ActivityEvent,System.String)">
+      <summary>
+            Writes the activity log.
+            </summary>
+      <param name="eventActivity">The event action.</param>
+      <param name="message">The message.</param>
+    </member>
+    <member name="M:Experion.Components.Logging.ExperionLogger.WriteErrorLog(System.String)">
+      <summary>
+            Logs the specified log.
+            </summary>
+      <param name="message">The message.</param>
+    </member>
+    <member name="T:Experion.Components.Logging.LogLevel">
+      <summary>
+            The LogLevel enum.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.All">
+      <summary>
+            The All level.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.Trace">
+      <summary>
+            The trace level.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.Debug">
+      <summary>
+            The debug level.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.Information">
+      <summary>
+            The information level.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.Warning">
+      <summary>
+            The warning level.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.Error">
+      <summary>
+            The error level.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.Fatal">
+      <summary>
+            The fatal error level.
+            </summary>
+    </member>
+    <member name="F:Experion.Components.Logging.LogLevel.Off">
+      <summary>
+            The Off level.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Threading.Locked">
+      <summary>
+            The locked value.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Threading.Locked.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Threading.Locked" /> class.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Threading.Locked.#ctor(System.Int64)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Experion.Components.Threading.Locked" /> class.
+            </summary>
+      <param name="value">The value.</param>
+    </member>
+    <member name="M:Experion.Components.Threading.Locked.Switch(System.Int64)">
+      <summary>
+            Switches to the specified value.
+            </summary>
+      <param name="value">The value.</param>
+      <returns>The original value.</returns>
+    </member>
+    <member name="M:Experion.Components.Threading.Locked.Switch(System.Int64,System.Int64)">
+      <summary>
+            Switches to the specified value if <paramref name="comparand" /> equals the current value.
+            </summary>
+      <param name="value">The value.</param>
+      <param name="comparand">The comparand.</param>
+      <returns>
+        <c>True</c> if value has been switched; otherwise, <c>false</c>.</returns>
+    </member>
+    <member name="P:Experion.Components.Threading.Locked.Value">
+      <summary>
+            Gets the value.
+            </summary>
+    </member>
+    <member name="T:Experion.Components.Unity.IUnityContainerManager">
+      <summary>
+            IUnityContainerManager.
+            </summary>
+    </member>
+    <member name="P:Experion.Components.Unity.IUnityContainerManager.Container">
+      <summary>
+            Gets the container.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Unity.IUnityContainerManager.RegisterInstance``1(``0)">
+      <summary>
+            Registers the instance.
+            </summary>
+      <param name="instance">The instance.</param>
+      <typeparam name="TInstance">The type of the instance.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Unity.IUnityContainerManager.RegisterInstance``1(``0,System.String)">
+      <summary>
+            Registers the instance.
+            </summary>
+      <param name="instance">The instance.</param>
+      <param name="name">The name.</param>
+      <typeparam name="TInstance">The type of the instance.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Unity.IUnityContainerManager.ResolveFor``1">
+      <summary>
+            Resolves for a type.
+            </summary>
+      <typeparam name="TInstance">The type of the instance.</typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Unity.IUnityContainerManager.ResolveFor``1</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:Experion.Components.Unity.IUnityContainerManager.ResolveFor``1(System.String)">
+      <summary>
+            Resolves for a type.
+            </summary>
+      <param name="registrationName">Name of the registration.</param>
+      <typeparam name="TInstance">The type of the instance.</typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Unity.IUnityContainerManager.ResolveFor``1(System.String)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="T:Experion.Components.Unity.UnityContainerManager">
+      <summary>
+            UnityContinerManager.
+            </summary>
+    </member>
+    <member name="P:Experion.Components.Unity.UnityContainerManager.Container">
+      <summary>
+            Gets the container.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Unity.UnityContainerManager.Dispose">
+      <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+    </member>
+    <member name="M:Experion.Components.Unity.UnityContainerManager.GetInstance">
+      <summary>
+            Gets the instance.
+            </summary>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Unity.UnityContainerManager.GetInstance</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:Experion.Components.Unity.UnityContainerManager.RegisterInstance``1(``0)">
+      <summary>
+            Registers the instance.
+            </summary>
+      <param name="instance">The instance.</param>
+      <typeparam name="TInstance">The type of the instance.</typeparam>
+    </member>
+    <member name="M:Experion.Components.Unity.UnityContainerManager.RegisterInstance``1(``0,System.String)">
+      <summary>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>summary</parameter>
+            <parameter>M:Experion.Components.Unity.UnityContainerManager.RegisterInstance``1(``0,System.String)</parameter>
+          </include>
+        </markup>
+      </summary>
+      <param name="instance">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>instance</parameter>
+            <parameter>M:Experion.Components.Unity.UnityContainerManager.RegisterInstance``1(``0,System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+      <param name="name">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>param</parameter>
+            <parameter>name</parameter>
+            <parameter>M:Experion.Components.Unity.UnityContainerManager.RegisterInstance``1(``0,System.String)</parameter>
+          </include>
+        </markup>
+      </param>
+      <typeparam name="TInstance">
+        <markup>
+          <include item="SMCMissingParamTag">
+            <parameter>typeparam</parameter>
+            <parameter>TInstance</parameter>
+            <parameter>M:Experion.Components.Unity.UnityContainerManager.RegisterInstance``1(``0,System.String)</parameter>
+          </include>
+        </markup>
+      </typeparam>
+    </member>
+    <member name="M:Experion.Components.Unity.UnityContainerManager.ResolveFor``1">
+      <summary>
+            Resolves for a type.
+            </summary>
+      <typeparam name="TInstance">The type of the instance.</typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Unity.UnityContainerManager.ResolveFor``1</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+    <member name="M:Experion.Components.Unity.UnityContainerManager.ResolveFor``1(System.String)">
+      <summary>
+            Resolves for a type.
+            </summary>
+      <param name="registrationName">Name of the registration.</param>
+      <typeparam name="TInstance">The type of the instance.</typeparam>
+      <returns>
+        <markup>
+          <include item="SMCMissingTag">
+            <parameter>returns</parameter>
+            <parameter>M:Experion.Components.Unity.UnityContainerManager.ResolveFor``1(System.String)</parameter>
+          </include>
+        </markup>
+      </returns>
+    </member>
+  </members>
+</doc>

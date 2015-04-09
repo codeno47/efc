@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ExperionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activities">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActivityDescription" Type="nvarchar" MaxLength="2500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Experion.dbo.MODULE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MODULE">
+          <Key>
+            <PropertyRef Name="MODULE_ID" />
+            
+            
+          </Key>
+          <Property Name="MODULE_ID" Type="int" Nullable="false" />
+          <Property Name="MODULE_DESCR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MAIN_MENU_CAPTION" Type="varchar" MaxLength="50" />
+          <Property Name="MENU_CAPTION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MENU_TOOLTIP" Type="varchar" MaxLength="50" />
+          <Property Name="CALL_PROCEDURE" Type="varchar" MaxLength="50" />
+          <Property Name="FACE_ID" Type="int" />
+          <Property Name="MENU_ORDER" Type="int" />
+          <Property Name="START_MENU_GROUP" Type="char" MaxLength="1" />
+          <Property Name="ENABLE" Type="char" MaxLength="1" />
+          <Property Name="MODULE_INFO" Type="varchar" MaxLength="500" />
+          <Property Name="ACTION_EDIT" Type="smallint" />
+          <Property Name="ACTION_INSERT" Type="smallint" />
+          <Property Name="ACTION_DELETE" Type="smallint" />
+          <Property Name="ACTION_BANK_DETAILS_EDIT" Type="smallint" />
+          <Property Name="ACTION_SUN_IMPORT" Type="smallint" />
+        </EntityType>
+        <EntityType Name="ProjectMembers">
+          <Key>
+            <PropertyRef Name="ProjectMemberId" />
+          </Key>
+          <Property Name="ProjectMemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2500" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="EffortBudget" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="CostBudget" Type="decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="ProjectStatus" Type="int" Nullable="false" />
+          <Property Name="HideFromTimesheet" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProjectStatus">
+          <Key>
+            <PropertyRef Name="ProjectStatusId" />
+          </Key>
+          <Property Name="ProjectStatusId" Type="int" Nullable="false" />
+          <Property Name="ProjectStatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Timesheets">
+          <Key>
+            <PropertyRef Name="TimesheetId" />
+          </Key>
+          <Property Name="TimesheetId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="TimesheetDate" Type="datetime" Nullable="false" />
+          <Property Name="Task" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Duration" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="2500" />
+          <Property Name="TicketID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Experion.dbo.TimesheetsOld' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TimesheetsOld">
+          <Key>
+            <PropertyRef Name="TimesheetId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ProjectId" />
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="TimesheetDate" />
+            <PropertyRef Name="Task" />
+            <PropertyRef Name="Duration" />
+          </Key>
+          <Property Name="TimesheetId" Type="bigint" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ProjectId" Type="int" Nullable="false" />
+          <Property Name="ActivityId" Type="int" Nullable="false" />
+          <Property Name="TimesheetDate" Type="datetime" Nullable="false" />
+          <Property Name="Task" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Duration" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="2500" />
+          <Property Name="TicketID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="USER_DEFN">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varbinary" MaxLength="50" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="Management" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="SUN_OPR" Type="varchar" MaxLength="3" />
+          <Property Name="COLOR_TMPL" Type="int" />
+          <Property Name="DEFAULT_COUNTRY" Type="varchar" MaxLength="20" />
+          <Property Name="AREA" Type="varchar" MaxLength="20" />
+          <Property Name="DATACASH_LOGIN" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Experion.dbo.USER_PERMISSION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="USER_PERMISSION">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="MODULE_ID" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="MODULE_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Experion.dbo.USER_REPORT_PERMISSION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="USER_REPORT_PERMISSION">
+          <Key>
+            <PropertyRef Name="LOGIN_ID" />
+            <PropertyRef Name="REPORT_ID" />
+          </Key>
+          <Property Name="LOGIN_ID" Type="int" Nullable="false" />
+          <Property Name="REPORT_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ProjectMembers_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="ProjectMembers" Type="Self.ProjectMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ProjectMembers">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="ProjectMembers" Type="Self.ProjectMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="ProjectMembers">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_USER_DEFN">
+          <End Role="USER_DEFN" Type="Self.USER_DEFN" Multiplicity="1" />
+          <End Role="ProjectMembers" Type="Self.ProjectMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER_DEFN">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ProjectMembers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProjectStatus">
+          <End Role="ProjectStatus" Type="Self.ProjectStatus" Multiplicity="1" />
+          <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectStatus">
+              <PropertyRef Name="ProjectStatusId" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="ProjectStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timesheets_Activities">
+          <End Role="Activities" Type="Self.Activities" Multiplicity="1" />
+          <End Role="Timesheets" Type="Self.Timesheets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activities">
+              <PropertyRef Name="ActivityId" />
+            </Principal>
+            <Dependent Role="Timesheets">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timesheets_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="1" />
+          <End Role="Timesheets" Type="Self.Timesheets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Timesheets">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timesheets_Users">
+          <End Role="USER_DEFN" Type="Self.USER_DEFN" Multiplicity="1" />
+          <End Role="Timesheets" Type="Self.Timesheets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER_DEFN">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Timesheets">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ChangeUserPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="InsertUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ExperionModelStoreContainer">
+          <EntitySet Name="Activities" EntityType="Self.Activities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectMembers" EntityType="Self.ProjectMembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectStatus" EntityType="Self.ProjectStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Timesheets" EntityType="Self.Timesheets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_DEFN" EntityType="Self.USER_DEFN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODULE" EntityType="Self.MODULE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MODULE].[MODULE_ID] AS [MODULE_ID], 
+    [MODULE].[MODULE_DESCR] AS [MODULE_DESCR], 
+    [MODULE].[MAIN_MENU_CAPTION] AS [MAIN_MENU_CAPTION], 
+    [MODULE].[MENU_CAPTION] AS [MENU_CAPTION], 
+    [MODULE].[MENU_TOOLTIP] AS [MENU_TOOLTIP], 
+    [MODULE].[CALL_PROCEDURE] AS [CALL_PROCEDURE], 
+    [MODULE].[FACE_ID] AS [FACE_ID], 
+    [MODULE].[MENU_ORDER] AS [MENU_ORDER], 
+    [MODULE].[START_MENU_GROUP] AS [START_MENU_GROUP], 
+    [MODULE].[ENABLE] AS [ENABLE], 
+    [MODULE].[MODULE_INFO] AS [MODULE_INFO], 
+    [MODULE].[ACTION_EDIT] AS [ACTION_EDIT], 
+    [MODULE].[ACTION_INSERT] AS [ACTION_INSERT], 
+    [MODULE].[ACTION_DELETE] AS [ACTION_DELETE], 
+    [MODULE].[ACTION_BANK_DETAILS_EDIT] AS [ACTION_BANK_DETAILS_EDIT], 
+    [MODULE].[ACTION_SUN_IMPORT] AS [ACTION_SUN_IMPORT]
+    FROM [dbo].[MODULE] AS [MODULE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TimesheetsOld" EntityType="Self.TimesheetsOld" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TimesheetsOld].[TimesheetId] AS [TimesheetId], 
+    [TimesheetsOld].[UserId] AS [UserId], 
+    [TimesheetsOld].[ProjectId] AS [ProjectId], 
+    [TimesheetsOld].[ActivityId] AS [ActivityId], 
+    [TimesheetsOld].[TimesheetDate] AS [TimesheetDate], 
+    [TimesheetsOld].[Task] AS [Task], 
+    [TimesheetsOld].[Duration] AS [Duration], 
+    [TimesheetsOld].[Remarks] AS [Remarks], 
+    [TimesheetsOld].[TicketID] AS [TicketID]
+    FROM [dbo].[TimesheetsOld] AS [TimesheetsOld]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USER_PERMISSION" EntityType="Self.USER_PERMISSION" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [USER_PERMISSION].[UserId] AS [UserId], 
+    [USER_PERMISSION].[MODULE_ID] AS [MODULE_ID]
+    FROM [dbo].[USER_PERMISSION] AS [USER_PERMISSION]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="USER_REPORT_PERMISSION" EntityType="Self.USER_REPORT_PERMISSION" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [USER_REPORT_PERMISSION].[LOGIN_ID] AS [LOGIN_ID], 
+    [USER_REPORT_PERMISSION].[REPORT_ID] AS [REPORT_ID]
+    FROM [dbo].[USER_REPORT_PERMISSION] AS [USER_REPORT_PERMISSION]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ProjectMembers_Projects" Association="Self.FK_ProjectMembers_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectMembers" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_Roles" Association="Self.FK_ProjectMembers_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="ProjectMembers" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_USER_DEFN" Association="Self.FK_ProjectMembers_USER_DEFN">
+            <End Role="USER_DEFN" EntitySet="USER_DEFN" />
+            <End Role="ProjectMembers" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProjectStatus" Association="Self.FK_Projects_ProjectStatus">
+            <End Role="ProjectStatus" EntitySet="ProjectStatus" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timesheets_Activities" Association="Self.FK_Timesheets_Activities">
+            <End Role="Activities" EntitySet="Activities" />
+            <End Role="Timesheets" EntitySet="Timesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timesheets_Projects" Association="Self.FK_Timesheets_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Timesheets" EntitySet="Timesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timesheets_Users" Association="Self.FK_Timesheets_Users">
+            <End Role="USER_DEFN" EntitySet="USER_DEFN" />
+            <End Role="Timesheets" EntitySet="Timesheets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ExperionModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Activities" EntityType="ExperionModel.Activity" />
+          <EntitySet Name="MODULEs" EntityType="ExperionModel.MODULE" />
+          <EntitySet Name="ProjectMembers" EntityType="ExperionModel.ProjectMember" />
+          <EntitySet Name="Projects" EntityType="ExperionModel.Project" />
+          <EntitySet Name="ProjectStatus" EntityType="ExperionModel.ProjectStatu" />
+          <EntitySet Name="Roles" EntityType="ExperionModel.Role" />
+          <EntitySet Name="Timesheets" EntityType="ExperionModel.Timesheet" />
+          <EntitySet Name="USER_DEFN" EntityType="ExperionModel.USER_DEFN" />
+          <EntitySet Name="TimesheetsOlds" EntityType="ExperionModel.TimesheetsOld" />
+          <EntitySet Name="USER_PERMISSION" EntityType="ExperionModel.USER_PERMISSION" />
+          <EntitySet Name="USER_REPORT_PERMISSION" EntityType="ExperionModel.USER_REPORT_PERMISSION" />
+          <AssociationSet Name="FK_Timesheets_Activities" Association="ExperionModel.FK_Timesheets_Activities">
+            <End Role="Activity" EntitySet="Activities" />
+            <End Role="Timesheet" EntitySet="Timesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_Projects" Association="ExperionModel.FK_ProjectMembers_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="ProjectMember" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_Roles" Association="ExperionModel.FK_ProjectMembers_Roles">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="ProjectMember" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectMembers_USER_DEFN" Association="ExperionModel.FK_ProjectMembers_USER_DEFN">
+            <End Role="USER_DEFN" EntitySet="USER_DEFN" />
+            <End Role="ProjectMember" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ProjectStatus" Association="ExperionModel.FK_Projects_ProjectStatus">
+            <End Role="ProjectStatu" EntitySet="ProjectStatus" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timesheets_Projects" Association="ExperionModel.FK_Timesheets_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Timesheet" EntitySet="Timesheets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timesheets_Users" Association="ExperionModel.FK_Timesheets_Users">
+            <End Role="USER_DEFN" EntitySet="USER_DEFN" />
+            <End Role="Timesheet" EntitySet="Timesheets" />
+          </AssociationSet>
+          <FunctionImport Name="ChangeUserPassword">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertUser" ReturnType="Collection(Int32)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActivityId" />
+          </Key>
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActivityDescription" Type="String" Nullable="false" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Timesheets" Relationship="ExperionModel.FK_Timesheets_Activities" FromRole="Activity" ToRole="Timesheet" />
+        </EntityType>
+        <EntityType Name="MODULE">
+          <Key>
+            <PropertyRef Name="MODULE_ID" />
+          </Key>
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" />
+          <Property Name="MODULE_DESCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MAIN_MENU_CAPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MENU_CAPTION" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MENU_TOOLTIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CALL_PROCEDURE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FACE_ID" Type="Int32" />
+          <Property Name="MENU_ORDER" Type="Int32" />
+          <Property Name="START_MENU_GROUP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ENABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MODULE_INFO" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ACTION_EDIT" Type="Int16" />
+          <Property Name="ACTION_INSERT" Type="Int16" />
+          <Property Name="ACTION_DELETE" Type="Int16" />
+          <Property Name="ACTION_BANK_DETAILS_EDIT" Type="Int16" />
+          <Property Name="ACTION_SUN_IMPORT" Type="Int16" />
+        </EntityType>
+        <EntityType Name="ProjectMember">
+          <Key>
+            <PropertyRef Name="ProjectMemberId" />
+          </Key>
+          <Property Name="ProjectMemberId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Project" Relationship="ExperionModel.FK_ProjectMembers_Projects" FromRole="ProjectMember" ToRole="Project" />
+          <NavigationProperty Name="Role" Relationship="ExperionModel.FK_ProjectMembers_Roles" FromRole="ProjectMember" ToRole="Role" />
+          <NavigationProperty Name="USER_DEFN" Relationship="ExperionModel.FK_ProjectMembers_USER_DEFN" FromRole="ProjectMember" ToRole="USER_DEFN" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectId" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="EffortBudget" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="CostBudget" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="ProjectStatus" Type="Int32" Nullable="false" />
+          <Property Name="HideFromTimesheet" Type="Boolean" />
+          <NavigationProperty Name="ProjectMembers" Relationship="ExperionModel.FK_ProjectMembers_Projects" FromRole="Project" ToRole="ProjectMember" />
+          <NavigationProperty Name="ProjectStatu" Relationship="ExperionModel.FK_Projects_ProjectStatus" FromRole="Project" ToRole="ProjectStatu" />
+          <NavigationProperty Name="Timesheets" Relationship="ExperionModel.FK_Timesheets_Projects" FromRole="Project" ToRole="Timesheet" />
+        </EntityType>
+        <EntityType Name="ProjectStatu">
+          <Key>
+            <PropertyRef Name="ProjectStatusId" />
+          </Key>
+          <Property Name="ProjectStatusId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projects" Relationship="ExperionModel.FK_Projects_ProjectStatus" FromRole="ProjectStatu" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProjectMembers" Relationship="ExperionModel.FK_ProjectMembers_Roles" FromRole="Role" ToRole="ProjectMember" />
+        </EntityType>
+        <EntityType Name="Timesheet">
+          <Key>
+            <PropertyRef Name="TimesheetId" />
+          </Key>
+          <Property Name="TimesheetId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="TimesheetDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Task" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="Remarks" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="TicketID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activity" Relationship="ExperionModel.FK_Timesheets_Activities" FromRole="Timesheet" ToRole="Activity" />
+          <NavigationProperty Name="Project" Relationship="ExperionModel.FK_Timesheets_Projects" FromRole="Timesheet" ToRole="Project" />
+          <NavigationProperty Name="USER_DEFN" Relationship="ExperionModel.FK_Timesheets_Users" FromRole="Timesheet" ToRole="USER_DEFN" />
+        </EntityType>
+        <EntityType Name="USER_DEFN">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="Management" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="SUN_OPR" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR_TMPL" Type="Int32" />
+          <Property Name="DEFAULT_COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AREA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DATACASH_LOGIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProjectMembers" Relationship="ExperionModel.FK_ProjectMembers_USER_DEFN" FromRole="USER_DEFN" ToRole="ProjectMember" />
+          <NavigationProperty Name="Timesheets" Relationship="ExperionModel.FK_Timesheets_Users" FromRole="USER_DEFN" ToRole="Timesheet" />
+        </EntityType>
+        <EntityType Name="TimesheetsOld">
+          <Key>
+            <PropertyRef Name="TimesheetId" />
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="ProjectId" />
+            <PropertyRef Name="ActivityId" />
+            <PropertyRef Name="TimesheetDate" />
+            <PropertyRef Name="Task" />
+            <PropertyRef Name="Duration" />
+          </Key>
+          <Property Name="TimesheetId" Type="Int64" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="ActivityId" Type="Int32" Nullable="false" />
+          <Property Name="TimesheetDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Task" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="Decimal" Nullable="false" Precision="4" Scale="2" />
+          <Property Name="Remarks" Type="String" MaxLength="2500" FixedLength="false" Unicode="true" />
+          <Property Name="TicketID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="USER_PERMISSION">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="MODULE_ID" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="MODULE_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER_REPORT_PERMISSION">
+          <Key>
+            <PropertyRef Name="LOGIN_ID" />
+            <PropertyRef Name="REPORT_ID" />
+          </Key>
+          <Property Name="LOGIN_ID" Type="Int32" Nullable="false" />
+          <Property Name="REPORT_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Timesheets_Activities">
+          <End Type="ExperionModel.Activity" Role="Activity" Multiplicity="1" />
+          <End Type="ExperionModel.Timesheet" Role="Timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActivityId" />
+            </Principal>
+            <Dependent Role="Timesheet">
+              <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_Projects">
+          <End Type="ExperionModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="ExperionModel.ProjectMember" Role="ProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="ProjectMember">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_Roles">
+          <End Type="ExperionModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="ExperionModel.ProjectMember" Role="ProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="ProjectMember">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectMembers_USER_DEFN">
+          <End Type="ExperionModel.USER_DEFN" Role="USER_DEFN" Multiplicity="1" />
+          <End Type="ExperionModel.ProjectMember" Role="ProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER_DEFN">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ProjectMember">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ProjectStatus">
+          <End Type="ExperionModel.ProjectStatu" Role="ProjectStatu" Multiplicity="1" />
+          <End Type="ExperionModel.Project" Role="Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProjectStatu">
+              <PropertyRef Name="ProjectStatusId" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="ProjectStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timesheets_Projects">
+          <End Type="ExperionModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="ExperionModel.Timesheet" Role="Timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectId" />
+            </Principal>
+            <Dependent Role="Timesheet">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timesheets_Users">
+          <End Type="ExperionModel.USER_DEFN" Role="USER_DEFN" Multiplicity="1" />
+          <End Type="ExperionModel.Timesheet" Role="Timesheet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER_DEFN">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Timesheet">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ExperionModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="ExperionModel.Activity">
+              <MappingFragment StoreEntitySet="Activities">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ActivityDescription" ColumnName="ActivityDescription" />
+                <ScalarProperty Name="ActivityCode" ColumnName="ActivityCode" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODULEs">
+            <EntityTypeMapping TypeName="ExperionModel.MODULE">
+              <MappingFragment StoreEntitySet="MODULE">
+                <ScalarProperty Name="ACTION_SUN_IMPORT" ColumnName="ACTION_SUN_IMPORT" />
+                <ScalarProperty Name="ACTION_BANK_DETAILS_EDIT" ColumnName="ACTION_BANK_DETAILS_EDIT" />
+                <ScalarProperty Name="ACTION_DELETE" ColumnName="ACTION_DELETE" />
+                <ScalarProperty Name="ACTION_INSERT" ColumnName="ACTION_INSERT" />
+                <ScalarProperty Name="ACTION_EDIT" ColumnName="ACTION_EDIT" />
+                <ScalarProperty Name="MODULE_INFO" ColumnName="MODULE_INFO" />
+                <ScalarProperty Name="ENABLE" ColumnName="ENABLE" />
+                <ScalarProperty Name="START_MENU_GROUP" ColumnName="START_MENU_GROUP" />
+                <ScalarProperty Name="MENU_ORDER" ColumnName="MENU_ORDER" />
+                <ScalarProperty Name="FACE_ID" ColumnName="FACE_ID" />
+                <ScalarProperty Name="CALL_PROCEDURE" ColumnName="CALL_PROCEDURE" />
+                <ScalarProperty Name="MENU_TOOLTIP" ColumnName="MENU_TOOLTIP" />
+                <ScalarProperty Name="MENU_CAPTION" ColumnName="MENU_CAPTION" />
+                <ScalarProperty Name="MAIN_MENU_CAPTION" ColumnName="MAIN_MENU_CAPTION" />
+                <ScalarProperty Name="MODULE_DESCR" ColumnName="MODULE_DESCR" />
+                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectMembers">
+            <EntityTypeMapping TypeName="ExperionModel.ProjectMember">
+              <MappingFragment StoreEntitySet="ProjectMembers">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ProjectMemberId" ColumnName="ProjectMemberId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ExperionModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="HideFromTimesheet" ColumnName="HideFromTimesheet" />
+                <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+                <ScalarProperty Name="CostBudget" ColumnName="CostBudget" />
+                <ScalarProperty Name="EffortBudget" ColumnName="EffortBudget" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectStatus">
+            <EntityTypeMapping TypeName="ExperionModel.ProjectStatu">
+              <MappingFragment StoreEntitySet="ProjectStatus">
+                <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+                <ScalarProperty Name="ProjectStatusId" ColumnName="ProjectStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="ExperionModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timesheets">
+            <EntityTypeMapping TypeName="ExperionModel.Timesheet">
+              <MappingFragment StoreEntitySet="Timesheets">
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="TimesheetDate" ColumnName="TimesheetDate" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TimesheetId" ColumnName="TimesheetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_DEFN">
+            <EntityTypeMapping TypeName="ExperionModel.USER_DEFN">
+              <MappingFragment StoreEntitySet="USER_DEFN">
+                <ScalarProperty Name="DATACASH_LOGIN" ColumnName="DATACASH_LOGIN" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+                <ScalarProperty Name="DEFAULT_COUNTRY" ColumnName="DEFAULT_COUNTRY" />
+                <ScalarProperty Name="COLOR_TMPL" ColumnName="COLOR_TMPL" />
+                <ScalarProperty Name="SUN_OPR" ColumnName="SUN_OPR" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Management" ColumnName="Management" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimesheetsOlds">
+            <EntityTypeMapping TypeName="ExperionModel.TimesheetsOld">
+              <MappingFragment StoreEntitySet="TimesheetsOld">
+                <ScalarProperty Name="TicketID" ColumnName="TicketID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="TimesheetDate" ColumnName="TimesheetDate" />
+                <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TimesheetId" ColumnName="TimesheetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_PERMISSION">
+            <EntityTypeMapping TypeName="ExperionModel.USER_PERMISSION">
+              <MappingFragment StoreEntitySet="USER_PERMISSION">
+                <ScalarProperty Name="MODULE_ID" ColumnName="MODULE_ID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_REPORT_PERMISSION">
+            <EntityTypeMapping TypeName="ExperionModel.USER_REPORT_PERMISSION">
+              <MappingFragment StoreEntitySet="USER_REPORT_PERMISSION">
+                <ScalarProperty Name="REPORT_ID" ColumnName="REPORT_ID" />
+                <ScalarProperty Name="LOGIN_ID" ColumnName="LOGIN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ChangeUserPassword" FunctionName="ExperionModel.Store.ChangeUserPassword" />
+          <FunctionImportMapping FunctionImportName="InsertUser" FunctionName="ExperionModel.Store.InsertUser" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

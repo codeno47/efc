@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Experion.PMO.Data.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Experion.PMO.Data.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDeviceLogDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceLogDto" nillable="true" type="tns:DeviceLogDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviceLogDto" nillable="true" type="tns:ArrayOfDeviceLogDto" />
+  <xs:complexType name="DeviceLogDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttDirection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceId" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceLogId" type="xs:int" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DownloadDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Employee" nillable="true" type="tns:EmployeeDto" />
+      <xs:element minOccurs="0" name="LogDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceLogDto" nillable="true" type="tns:DeviceLogDto" />
+  <xs:complexType name="EmployeeDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BLOODGROUP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+      <xs:element minOccurs="0" name="CompanyId" type="xs:int" />
+      <xs:element minOccurs="0" name="ContactNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DOB" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOC" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOJ" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DOR" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DepartmentId" type="xs:int" />
+      <xs:element minOccurs="0" name="Designation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceLogs" nillable="true" type="tns:ArrayOfDeviceLogDto" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeCodeInDevice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeDeviceGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeDevicePassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId" type="xs:int" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeRFIDNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployementType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExtensionNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HolidayGroup" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsRecieveNotification" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginPassword" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MotherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nomenee1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nomenee2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumericCode" type="xs:int" />
+      <xs:element minOccurs="0" name="PermanentAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlaceOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecordStatus" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Remarks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResidentialAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShiftGroupId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ShiftRosterId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StringCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Team" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkPlace" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployeeDto" nillable="true" type="tns:EmployeeDto" />
+  <xs:complexType name="ArrayOfLogEntryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LogEntryDto" nillable="true" type="tns:LogEntryDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLogEntryDto" nillable="true" type="tns:ArrayOfLogEntryDto" />
+  <xs:complexType name="LogEntryDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Direction" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Effort" type="xs:double" />
+      <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogEntryDto" nillable="true" type="tns:LogEntryDto" />
+  <xs:complexType name="EmployeeLeaveDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Effort" type="xs:double" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Leave" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployeeLeaveDto" nillable="true" type="tns:EmployeeLeaveDto" />
+</xs:schema>

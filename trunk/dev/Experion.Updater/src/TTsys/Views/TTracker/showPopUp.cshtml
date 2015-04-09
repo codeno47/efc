@@ -1,0 +1,22 @@
+﻿@using TTsys.Models;
+@model IEnumerable<logDetails>
+
+@{
+    ViewBag.Title = "PopUP";
+   
+}
+ 
+    
+            
+   
+<div id="popupcontent2">
+ @(Html.Kendo().Grid<logDetails>(Model)
+    .Name("logGrid")
+   //.HtmlAttributes(new { style = "width: 1050px;height:1000px;" })
+        .Columns(column =>
+     {
+         column.Bound(p => p.LogTime).Width(50).Format("{0:hh:mm:ss tt}");
+        column.Bound(p => p.LogType).Width(50);
+     })
+   )
+     </div>

@@ -1,0 +1,109 @@
+﻿<ribbon:XamRibbonWindow  x:Class="Experion.TTS.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        xmlns:ribbon="http://infragistics.com/Ribbon"
+        mc:Ignorable="d ignore"
+        Width="Auto" Height="Auto"
+         WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Title="Experion Time Tracking System"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <ribbon:RibbonWindowContentHost>
+        <ribbon:RibbonWindowContentHost.Ribbon>
+            <ribbon:XamRibbon Theme="IGTheme" >
+                <ribbon:XamRibbon.Tabs>
+                    <ribbon:RibbonTabItem>
+                        <ribbon:RibbonGroup  Margin="70,0,0,0" Caption="Time Sheet" IsEnabled="{Binding IsTimeSheetEnabled}">
+                            <ribbon:ToolHorizontalWrapPanel>
+
+                                <ribbon:ButtonTool Caption="Show Timesheet"
+                                               Command="{Binding ShowTimeSheetCommand}"
+                                               ribbon:RibbonGroup.MaximumSize="ImageAndTextLarge"
+                                           IsEnabled="True" SmallImage="/Images/timesheet_2.png">
+                                    <ribbon:ButtonTool.LargeImage>
+                                        <BitmapImage UriSource="/Experion.TTS.Client;component/Images/timesheet_2.png"/>
+                                    </ribbon:ButtonTool.LargeImage>
+                                </ribbon:ButtonTool>
+
+                                <ribbon:ButtonTool Caption="Add Time Sheet"
+                                               Command="{Binding BulkTimeSheetAddCommand}"
+                                               ribbon:RibbonGroup.MaximumSize="ImageAndTextLarge"
+                                           IsEnabled="True" SmallImage="/Images/addtimesheet.png">
+                                    <ribbon:ButtonTool.LargeImage>
+                                        <BitmapImage UriSource="/Experion.TTS.Client;component/Images/addtimesheet.png"/>
+                                    </ribbon:ButtonTool.LargeImage>
+                                </ribbon:ButtonTool>
+
+                                <ribbon:ButtonTool Command="{Binding SaveRibbonCommand}"
+                                                 ribbon:RibbonGroup.MaximumSize="ImageAndTextLarge"
+                                Caption="Save" IsEnabled="True"  SmallImage="/Images/Save.png">
+                                    <ribbon:ButtonTool.LargeImage>
+                                        <BitmapImage UriSource="/Experion.TTS.Client;component/Images/Save.png"/>
+                                    </ribbon:ButtonTool.LargeImage>
+                                </ribbon:ButtonTool>
+
+                            </ribbon:ToolHorizontalWrapPanel>
+                        </ribbon:RibbonGroup>
+
+                        <ribbon:RibbonGroup Caption="Project" IsEnabled="{Binding IsProjectRibbonEnabled}" MinimumSize="ImageAndTextLarge">
+                            <ribbon:ToolHorizontalWrapPanel>
+                                <ribbon:ButtonTool Caption="Projects"  Width="50"  ribbon:RibbonGroup.MaximumSize="ImageAndTextLarge"
+                                               Command="{Binding ShowAllProjectsCommand}" 
+                                           IsEnabled="True">
+                                    <ribbon:ButtonTool.LargeImage>
+                                        <BitmapImage  UriSource="/Experion.TTS.Client;component/Images/ShowProjects.png"/>
+                                    </ribbon:ButtonTool.LargeImage>
+                                </ribbon:ButtonTool>
+
+                                <ribbon:ButtonTool Caption="Add Project"  Width="50"   ribbon:RibbonGroup.MaximumSize="ImageAndTextLarge"
+                                               Command="{Binding AddProjectCommand}" 
+                                           IsEnabled="True">
+                                    <ribbon:ButtonTool.LargeImage>
+                                        <BitmapImage  UriSource="/Experion.TTS.Client;component/Images/addproject.png"/>
+                                    </ribbon:ButtonTool.LargeImage>
+                                </ribbon:ButtonTool>
+
+                            </ribbon:ToolHorizontalWrapPanel>
+                        </ribbon:RibbonGroup>
+
+                        <ribbon:RibbonGroup Caption="Users" MinimumSize="ImageAndTextLarge">
+                            <ribbon:ToolHorizontalWrapPanel>
+
+                                <ribbon:ButtonTool Caption="Add User" Width="50"  ribbon:RibbonGroup.MaximumSize="ImageAndTextLarge"
+                                               Command="{Binding AddUserCommand}" 
+                                           IsEnabled="True">
+                                    <ribbon:ButtonTool.LargeImage>
+                                        <BitmapImage  UriSource="/Experion.TTS.Client;component/Images/adduser.png"/>
+                                    </ribbon:ButtonTool.LargeImage>
+                                </ribbon:ButtonTool>
+
+                                <ribbon:ButtonTool Caption="Users"  Width="50"  ribbon:RibbonGroup.MaximumSize="ImageAndTextLarge"
+                                               Command="{Binding ShowUsersCommand}" 
+                                           IsEnabled="True">
+                                    <ribbon:ButtonTool.LargeImage>
+                                        <BitmapImage  UriSource="/Experion.TTS.Client;component/Images/Users.png"/>
+                                    </ribbon:ButtonTool.LargeImage>
+                                </ribbon:ButtonTool>
+                               
+                            </ribbon:ToolHorizontalWrapPanel>
+                        </ribbon:RibbonGroup>
+                    </ribbon:RibbonTabItem>
+                </ribbon:XamRibbon.Tabs>
+
+            </ribbon:XamRibbon>
+        </ribbon:RibbonWindowContentHost.Ribbon>
+        <Grid x:Name="LayoutRoot">
+            <ContentControl Name="Region1" Content="{Binding Region}" Width="Auto" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentControl>
+        </Grid>
+    </ribbon:RibbonWindowContentHost>
+</ribbon:XamRibbonWindow>

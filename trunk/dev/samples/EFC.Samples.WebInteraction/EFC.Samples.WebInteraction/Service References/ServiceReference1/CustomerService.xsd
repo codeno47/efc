@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:59895/CustomerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Unity.Wcf.Example" />
+  <xs:import schemaLocation="http://localhost:59895/CustomerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EFC.Samples.Service.Contracts.Dto" />
+  <xs:element name="GetCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Unity.Wcf.Example" minOccurs="0" name="request" nillable="true" type="q1:GetCustomerRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Unity.Wcf.Example" minOccurs="0" name="GetCustomerResult" nillable="true" type="q2:GetCustomerResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBeatPlan">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBeatPlanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EFC.Samples.Service.Contracts.Dto" minOccurs="0" name="GetBeatPlanResult" nillable="true" type="q3:BeatPlanDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

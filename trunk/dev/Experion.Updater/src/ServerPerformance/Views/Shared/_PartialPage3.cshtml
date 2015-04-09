@@ -1,0 +1,55 @@
+﻿
+  @using Telerik.Web.Data;
+@model ServerPerformance.Models.Server
+
+@{
+    ViewBag.Title = "ServerStatus";
+    <link href="~/Content/assets/css/CommonStyle.css" rel="stylesheet" />
+}
+
+         <div id="PartialGaugeContainer3">
+              
+             <h2  >Machine IP: @Model.Name </h2>
+             @* @Html.TextBoxFor(m=>m.InitialUsage)*@
+                <h3>Current Memory Usage: @Model.Usage.ToString("0.00") %</h3>
+        
+            
+                @(Html.Kendo().RadialGauge().Name("Guage3") .Pointer(pointr=>pointr.Value(Model.Usage))
+                .Transitions(false)
+                .Scale(scale => scale
+                .MinorUnit(0.5)
+                .MajorUnit(10)
+                .StartAngle(-60)
+                .EndAngle(240)
+               .Max(100)
+               
+               .Labels(labels => labels
+                    .Position(GaugeRadialScaleLabelsPosition.Inside)
+                   
+              )
+                .Ranges(ranges => {
+                    ranges.Add().From(0).To(20).Color("#04B404");
+                    ranges.Add().From(20).To(40).Color("#2EFE2E");
+                    ranges.Add().From(40).To(60).Color("#ffc700");
+                    ranges.Add().From(60).To(80).Color("#FE9A2E");
+                    ranges.Add().From(80).To(90).Color("#DF0101");
+                    ranges.Add().From(90).To(100).Color("#c20000");
+                })) 
+                )
+
+          
+                  @(Html.Kendo().Grid<ServerPerformance.Models.ProcInfo>(Model.procinfolist)
+                  .Name("Grid3")
+                  .Columns(columns =>
+                  {
+                      columns.Bound(p => p.Name);
+                      columns.Bound(p => p.WorkingSet);
+                      
+                          }))
+
+        
+    
+             </div>
+         
+            
+

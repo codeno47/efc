@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A64EF34-CEAD-4253-ADC5-8E554E648C53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFC.Components</RootNamespace>
+    <AssemblyName>EFC.Components</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <DontImportPostSharp>True</DontImportPostSharp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\Workspace\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SkipPostSharp>False</SkipPostSharp>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>..\..\..\..\Workspace\bin\EFC.Components.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\Workspace\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <SkipPostSharp>False</SkipPostSharp>
+    <DocumentationFile>..\..\..\..\Workspace\bin\EFC.Components.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended">
+      <HintPath>..\..\packages\EntityFramework.Extended.6.1.0.133\lib\net45\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
+      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation">
+      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\lib\NUnit\nunit.framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PostSharp, Version=4.0.42.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\PostSharp.4.0.42\lib\net35-client\PostSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aspect\HandleExceptionAttribute.cs" />
+    <Compile Include="Aspect\TraceAttribute.cs" />
+    <Compile Include="ComponentModel\DisposableBase.cs" />
+    <Compile Include="Data\EFRepositoryContext.cs" />
+    <Compile Include="Data\IRepositoryContext.cs" />
+    <Compile Include="Data\EFRepository.cs" />
+    <Compile Include="Data\RepositoryBase.cs" />
+    <Compile Include="Data\DataServiceBase.cs" />
+    <Compile Include="Data\IEntity.cs" />
+    <Compile Include="Data\EfDataService.cs" />
+    <Compile Include="Data\Specification.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Data\IDataContext.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Diagnostic\Disposable.cs" />
+    <Compile Include="Enum\ConnectionStringKeys.cs" />
+    <Compile Include="Enum\DialogResults.cs" />
+    <Compile Include="Enum\RepositoryChangeType.cs" />
+    <Compile Include="Enum\FilterType.cs" />
+    <Compile Include="Events\EventBroker.cs" />
+    <Compile Include="Events\EventSubject.cs" />
+    <Compile Include="Events\IEventBroker.cs" />
+    <Compile Include="Events\MethodInfoExtensions.cs" />
+    <Compile Include="Events\Publication.cs" />
+    <Compile Include="Events\PublicationComparerer.cs" />
+    <Compile Include="Events\RecomposeEventArgs.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\RepositoryChangeEventArgs.cs" />
+    <Compile Include="Events\StaticSubscription.cs" />
+    <Compile Include="Events\SubscriptionBase.cs" />
+    <Compile Include="Events\ThreadOption.cs" />
+    <Compile Include="Events\Unity\Configuration\EventBrokerConfigurationElement.cs" />
+    <Compile Include="Events\Unity\Configuration\EventBrokerSectionExtension.cs" />
+    <Compile Include="Events\Unity\Configuration\EventPublicationConfigurationElement.cs" />
+    <Compile Include="Events\Unity\Configuration\EventPublicationInjectionMember.cs" />
+    <Compile Include="Events\Unity\Configuration\EventSubscriptionConfigurationElement.cs" />
+    <Compile Include="Events\Unity\Configuration\EventSubscriptionInjectionMember.cs" />
+    <Compile Include="Events\Unity\IEventBrokerExtensionConfigurator.cs" />
+    <Compile Include="Events\Unity\PublicationInfo.cs" />
+    <Compile Include="Events\Unity\SubscriptionInfo.cs" />
+    <Compile Include="Events\WeakSubscription.cs" />
+    <Compile Include="Exception\ExceptionBootstrap.cs" />
+    <Compile Include="Exception\ExceptionBuilder.cs" />
+    <Compile Include="Exception\ObjectNotDefinedException.cs" />
+    <Compile Include="Exception\ObjectUninitializedException.cs" />
+    <Compile Include="Extensibility\ExtensionPoint.cs" />
+    <Compile Include="Extensibility\IExtensionPointDefinition.cs" />
+    <Compile Include="Extensibility\IExtensionPoint`1.cs" />
+    <Compile Include="Extensibility\IExtensionPoint.cs" />
+    <Compile Include="Extensibility\IRecomposable.cs" />
+    <Compile Include="Http\ClientHttpException.cs" />
+    <Compile Include="Http\IRemoteHandler.cs" />
+    <Compile Include="Http\HttpContextHandler.cs" />
+    <Compile Include="Localization\ILocalizationProvider.cs" />
+    <Compile Include="Localization\LocalizationProvider.cs" />
+    <Compile Include="Logging\ActivityEvent.cs" />
+    <Compile Include="Logging\Data\Partials\AuditLog.cs" />
+    <Compile Include="Logging\IAuditService.cs" />
+    <Compile Include="Logging\AuditTrailBootStrapper.cs" />
+    <Compile Include="Logging\Data\AuditContainer.cs" />
+    <Compile Include="Logging\Data\AuditLog.cs">
+      <DependentUpon>AuditModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logging\Data\AuditModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuditModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logging\Data\AuditModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuditModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logging\Data\AuditModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuditModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Logging\Data\AuditRepositoryContext.cs" />
+    <Compile Include="Logging\ExperionLogger.cs" />
+    <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Logging\XmlLogger.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializer\JsonHelper.cs" />
+    <Compile Include="Test\NunitTestBase.cs" />
+    <Compile Include="Threading\Async.cs" />
+    <Compile Include="Threading\AsyncOperationCompletedEventArgs`1.cs" />
+    <Compile Include="Threading\AsyncOperation`1.cs" />
+    <Compile Include="Threading\AsyncResult.cs" />
+    <Compile Include="Threading\AsyncResult`1.cs" />
+    <Compile Include="Threading\Locked.cs" />
+    <Compile Include="Threading\Locked`1.cs" />
+    <Compile Include="Threading\SyncLock.cs" />
+    <Compile Include="Unity\IUnityContainerManager.cs" />
+    <Compile Include="Unity\UnityContainerManager.cs" />
+    <Compile Include="Validations\Requires.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="key.pfx" />
+    <EntityDeploy Include="Logging\Data\AuditModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AuditModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Logging\Data\AuditModel.edmx.diagram">
+      <DependentUpon>AuditModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logging\Data\AuditModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AuditModel.Context.cs</LastGenOutput>
+      <DependentUpon>AuditModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Logging\Data\AuditModel.edmx.sql" />
+    <Content Include="Logging\Data\AuditModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AuditModel.cs</LastGenOutput>
+      <DependentUpon>AuditModel.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\Build\targets\StyleCopStaticAnalysis.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\PostSharp.4.0.42\tools\PostSharp.targets" Condition="Exists('..\..\packages\PostSharp.4.0.42\tools\PostSharp.targets')" />
+  <Target Name="EnsurePostSharpImported" BeforeTargets="BeforeBuild" Condition="'$(PostSharp30Imported)' == ''">
+    <Error Condition="!Exists('..\..\packages\PostSharp.4.0.42\tools\PostSharp.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore." />
+    <Error Condition="Exists('..\..\packages\PostSharp.4.0.42\tools\PostSharp.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://www.postsharp.net/links/nuget-restore." />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

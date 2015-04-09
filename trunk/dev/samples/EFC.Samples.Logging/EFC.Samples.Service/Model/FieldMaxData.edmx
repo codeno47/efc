@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FieldMaxData.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="FieldMaxDataStoreContainer">
+          <EntitySet Name="ActiveShop" EntityType="FieldMaxData.Store.ActiveShop" store:Type="Tables" store:Schema="dbo" store:Name="ActiveShop">
+            <DefiningQuery>SELECT 
+      [ActiveShop].[ThirdPartyShopName] AS [ThirdPartyShopName], 
+      [ActiveShop].[CreatedDate] AS [CreatedDate]
+      FROM [dbo].[ActiveShop] AS [ActiveShop]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BeatPlan" EntityType="FieldMaxData.Store.BeatPlan" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BeatPlanSetting" EntityType="FieldMaxData.Store.BeatPlanSetting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SalesDetails" EntityType="FieldMaxData.Store.SalesDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shop" EntityType="FieldMaxData.Store.Shop" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BeatPlanSetting_BeatPlan" Association="FieldMaxData.Store.FK_BeatPlanSetting_BeatPlan">
+            <End Role="BeatPlan" EntitySet="BeatPlan" />
+            <End Role="BeatPlanSetting" EntitySet="BeatPlanSetting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BeatPlanSetting_Shop" Association="FieldMaxData.Store.FK_BeatPlanSetting_Shop">
+            <End Role="Shop" EntitySet="Shop" />
+            <End Role="BeatPlanSetting" EntitySet="BeatPlanSetting" />
+          </AssociationSet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'FieldMaxFMCG-1.4.3.dbo.ActiveShop' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ActiveShop">
+          <Key>
+            <PropertyRef Name="ThirdPartyShopName" />
+            <PropertyRef Name="CreatedDate" />
+          </Key>
+          <Property Name="ThirdPartyShopName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BeatPlan">
+          <Key>
+            <PropertyRef Name="BeatPlanId" />
+          </Key>
+          <Property Name="BeatPlanId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PlanName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="ExipryDate" Type="datetime" />
+          <Property Name="OrganizationId" Type="int" />
+          <Property Name="Target" Type="numeric" Scale="2" />
+        </EntityType>
+        <EntityType Name="BeatPlanSetting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BeatPlanId" Type="int" Nullable="false" />
+          <Property Name="ShopId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SalesDetails">
+          <Key>
+            <PropertyRef Name="SalesDetailsId" />
+          </Key>
+          <Property Name="SalesDetailsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="InvoiceNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShopId" Type="int" Nullable="false" />
+          <Property Name="ProductAttributeId" Type="int" />
+          <Property Name="Quantity" Type="numeric" Scale="3" />
+          <Property Name="Amount" Type="numeric" Scale="2" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ShopId" />
+          </Key>
+          <Property Name="ShopId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ShopTypeId" Type="int" />
+          <Property Name="ShopClassId" Type="int" />
+          <Property Name="LocationId" Type="int" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="1050" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="StateId" Type="int" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="ZoneId" Type="int" />
+          <Property Name="RouteId" Type="int" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="DistributorId" Type="int" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="DistrictId" Type="int" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="PINCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="TINNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CSTNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ThirdPartyShopCode" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerGroupId" Type="int" />
+          <Property Name="CreditLimit" Type="numeric" />
+          <Property Name="DailyActive" Type="bit" />
+          <Property Name="DoorNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="StreetName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShopLatitude" Type="numeric" Precision="9" Scale="6" />
+          <Property Name="ShopLongitude" Type="numeric" Precision="9" Scale="6" />
+          <Property Name="TransporterId" Type="int" />
+          <Property Name="CreditStatus" Type="bit" />
+        </EntityType>
+        <Association Name="FK_BeatPlanSetting_BeatPlan">
+          <End Role="BeatPlan" Type="FieldMaxData.Store.BeatPlan" Multiplicity="1" />
+          <End Role="BeatPlanSetting" Type="FieldMaxData.Store.BeatPlanSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BeatPlan">
+              <PropertyRef Name="BeatPlanId" />
+            </Principal>
+            <Dependent Role="BeatPlanSetting">
+              <PropertyRef Name="BeatPlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BeatPlanSetting_Shop">
+          <End Role="Shop" Type="FieldMaxData.Store.Shop" Multiplicity="1" />
+          <End Role="BeatPlanSetting" Type="FieldMaxData.Store.BeatPlanSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="ShopId" />
+            </Principal>
+            <Dependent Role="BeatPlanSetting">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="FieldMaxData" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="FieldMaxDataContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BeatPlans" EntityType="FieldMaxData.BeatPlan" />
+          <EntitySet Name="BeatPlanSettings" EntityType="FieldMaxData.BeatPlanSetting" />
+          <AssociationSet Name="FK_BeatPlanSetting_BeatPlan" Association="FieldMaxData.FK_BeatPlanSetting_BeatPlan">
+            <End Role="BeatPlan" EntitySet="BeatPlans" />
+            <End Role="BeatPlanSetting" EntitySet="BeatPlanSettings" />
+          </AssociationSet>
+          <EntitySet Name="SalesDetails" EntityType="FieldMaxData.SalesDetail" />
+          <EntitySet Name="Shops" EntityType="FieldMaxData.Shop" />
+          <AssociationSet Name="FK_BeatPlanSetting_Shop" Association="FieldMaxData.FK_BeatPlanSetting_Shop">
+            <End Role="Shop" EntitySet="Shops" />
+            <End Role="BeatPlanSetting" EntitySet="BeatPlanSettings" />
+          </AssociationSet>
+          <EntitySet Name="ActiveShops" EntityType="FieldMaxData.ActiveShop" />
+        </EntityContainer>
+        <EntityType Name="BeatPlan">
+          <Key>
+            <PropertyRef Name="BeatPlanId" />
+          </Key>
+          <Property Type="Int32" Name="BeatPlanId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PlanName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="DateTime" Name="ExipryDate" Precision="3" />
+          <Property Type="Int32" Name="OrganizationId" />
+          <Property Type="Decimal" Name="Target" Precision="18" Scale="2" />
+          <NavigationProperty Name="BeatPlanSettings" Relationship="FieldMaxData.FK_BeatPlanSetting_BeatPlan" FromRole="BeatPlan" ToRole="BeatPlanSetting" />
+        </EntityType>
+        <EntityType Name="BeatPlanSetting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Type="Int32" Name="SettingId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BeatPlanId" Nullable="false" />
+          <Property Type="Int32" Name="ShopId" Nullable="false" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+          <NavigationProperty Name="BeatPlan" Relationship="FieldMaxData.FK_BeatPlanSetting_BeatPlan" FromRole="BeatPlanSetting" ToRole="BeatPlan" />
+          <NavigationProperty Name="Shop" Relationship="FieldMaxData.FK_BeatPlanSetting_Shop" FromRole="BeatPlanSetting" ToRole="Shop" />
+        </EntityType>
+        <Association Name="FK_BeatPlanSetting_BeatPlan">
+          <End Type="FieldMaxData.BeatPlan" Role="BeatPlan" Multiplicity="1" />
+          <End Type="FieldMaxData.BeatPlanSetting" Role="BeatPlanSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BeatPlan">
+              <PropertyRef Name="BeatPlanId" />
+            </Principal>
+            <Dependent Role="BeatPlanSetting">
+              <PropertyRef Name="BeatPlanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SalesDetail">
+          <Key>
+            <PropertyRef Name="SalesDetailsId" />
+          </Key>
+          <Property Type="Int32" Name="SalesDetailsId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="InvoiceDate" Precision="3" />
+          <Property Type="String" Name="InvoiceNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ShopId" Nullable="false" />
+          <Property Type="Int32" Name="ProductAttributeId" />
+          <Property Type="Decimal" Name="Quantity" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="UserId" />
+        </EntityType>
+        <EntityType Name="Shop">
+          <Key>
+            <PropertyRef Name="ShopId" />
+          </Key>
+          <Property Type="Int32" Name="ShopId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShortName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ShopTypeId" />
+          <Property Type="Int32" Name="ShopClassId" />
+          <Property Type="Int32" Name="LocationId" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="1050" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CityId" />
+          <Property Type="Int32" Name="StateId" />
+          <Property Type="Int32" Name="CountryId" />
+          <Property Type="Int32" Name="ZoneId" />
+          <Property Type="Int32" Name="RouteId" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="Int32" Name="DistributorId" />
+          <Property Type="String" Name="ContactPerson" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="ModifiedDate" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="Int32" Name="DistrictId" />
+          <Property Type="String" Name="MobileNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PINCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TINNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CSTNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ThirdPartyShopCode" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CustomerGroupId" />
+          <Property Type="Decimal" Name="CreditLimit" Precision="18" Scale="0" />
+          <Property Type="Boolean" Name="DailyActive" />
+          <Property Type="String" Name="DoorNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StreetName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="ShopLatitude" Precision="9" Scale="6" />
+          <Property Type="Decimal" Name="ShopLongitude" Precision="9" Scale="6" />
+          <Property Type="Int32" Name="TransporterId" />
+          <Property Type="Boolean" Name="CreditStatus" />
+          <NavigationProperty Name="BeatPlanSettings" Relationship="FieldMaxData.FK_BeatPlanSetting_Shop" FromRole="Shop" ToRole="BeatPlanSetting" />
+        </EntityType>
+        <Association Name="FK_BeatPlanSetting_Shop">
+          <End Type="FieldMaxData.Shop" Role="Shop" Multiplicity="1" />
+          <End Type="FieldMaxData.BeatPlanSetting" Role="BeatPlanSetting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shop">
+              <PropertyRef Name="ShopId" />
+            </Principal>
+            <Dependent Role="BeatPlanSetting">
+              <PropertyRef Name="ShopId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ActiveShop">
+          <Key>
+            <PropertyRef Name="ThirdPartyShopName" />
+            <PropertyRef Name="CreatedDate" />
+          </Key>
+          <Property Type="String" Name="ThirdPartyShopName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="FieldMaxData" />
+        <Alias Key="Target" Value="FieldMaxData.Store" />
+        <EntityContainerMapping CdmEntityContainer="FieldMaxDataContainer" StorageEntityContainer="FieldMaxDataStoreContainer">
+          <EntitySetMapping Name="BeatPlans">
+            <EntityTypeMapping TypeName="FieldMaxData.BeatPlan">
+              <MappingFragment StoreEntitySet="BeatPlan">
+                <ScalarProperty Name="Target" ColumnName="Target" />
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+                <ScalarProperty Name="ExipryDate" ColumnName="ExipryDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PlanName" ColumnName="PlanName" />
+                <ScalarProperty Name="BeatPlanId" ColumnName="BeatPlanId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BeatPlanSettings">
+            <EntityTypeMapping TypeName="FieldMaxData.BeatPlanSetting">
+              <MappingFragment StoreEntitySet="BeatPlanSetting">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="BeatPlanId" ColumnName="BeatPlanId" />
+                <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesDetails">
+            <EntityTypeMapping TypeName="FieldMaxData.SalesDetail">
+              <MappingFragment StoreEntitySet="SalesDetails">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductAttributeId" ColumnName="ProductAttributeId" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="SalesDetailsId" ColumnName="SalesDetailsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shops">
+            <EntityTypeMapping TypeName="FieldMaxData.Shop">
+              <MappingFragment StoreEntitySet="Shop">
+                <ScalarProperty Name="CreditStatus" ColumnName="CreditStatus" />
+                <ScalarProperty Name="TransporterId" ColumnName="TransporterId" />
+                <ScalarProperty Name="ShopLongitude" ColumnName="ShopLongitude" />
+                <ScalarProperty Name="ShopLatitude" ColumnName="ShopLatitude" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="DoorNo" ColumnName="DoorNo" />
+                <ScalarProperty Name="DailyActive" ColumnName="DailyActive" />
+                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+                <ScalarProperty Name="CustomerGroupId" ColumnName="CustomerGroupId" />
+                <ScalarProperty Name="ThirdPartyShopCode" ColumnName="ThirdPartyShopCode" />
+                <ScalarProperty Name="CSTNo" ColumnName="CSTNo" />
+                <ScalarProperty Name="TINNo" ColumnName="TINNo" />
+                <ScalarProperty Name="PINCode" ColumnName="PINCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="DistributorId" ColumnName="DistributorId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="ZoneId" ColumnName="ZoneId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="ShopClassId" ColumnName="ShopClassId" />
+                <ScalarProperty Name="ShopTypeId" ColumnName="ShopTypeId" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActiveShops">
+            <EntityTypeMapping TypeName="FieldMaxData.ActiveShop">
+              <MappingFragment StoreEntitySet="ActiveShop">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ThirdPartyShopName" ColumnName="ThirdPartyShopName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

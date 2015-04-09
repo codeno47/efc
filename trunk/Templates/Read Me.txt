@@ -1,0 +1,18 @@
+
+
+Copy follwing filws to C:\Users\LOGINNAME\Documents\Visual Studio 2012\Templates\ItemTemplates\Visual C#\EFC
+
+App.config.zip
+ApplicationService.zip
+BusinessService.zip
+Model.zip
+unity.config.zip
+ViewModel.zip
+
+
+
+---------------------------------------------------
+
+Copy follwing filws to C:\Users\LOGINNAME\Documents\Visual Studio 2012\Templates\ProjectTemplates\Visual C#\EFC
+
+EFC MVVM Windows Application.zip

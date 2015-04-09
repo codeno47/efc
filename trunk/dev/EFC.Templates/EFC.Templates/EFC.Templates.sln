@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Templates", "EFC.Templates\EFC.Templates.csproj", "{F7650EAB-33FC-4A99-96A5-282DFD1DBBEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Web.Template", "EFC.Web.Template\EFC.Web.Template.csproj", "{3D4627B9-E9AB-4936-B2D8-497D91139425}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7650EAB-33FC-4A99-96A5-282DFD1DBBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7650EAB-33FC-4A99-96A5-282DFD1DBBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7650EAB-33FC-4A99-96A5-282DFD1DBBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7650EAB-33FC-4A99-96A5-282DFD1DBBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4627B9-E9AB-4936-B2D8-497D91139425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4627B9-E9AB-4936-B2D8-497D91139425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4627B9-E9AB-4936-B2D8-497D91139425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4627B9-E9AB-4936-B2D8-497D91139425}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

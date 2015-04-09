@@ -1,0 +1,118 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="EFC.Build.Version.Template.ProcessTemplate.Activity1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:mtbc="clr-namespace:Microsoft.TeamFoundation.Build.Client;assembly=Microsoft.TeamFoundation.Build.Client"
+ xmlns:mtbwa="clr-namespace:Microsoft.TeamFoundation.Build.Workflow.Activities;assembly=Microsoft.TeamFoundation.Build.Workflow"
+ xmlns:mtvc="clr-namespace:Microsoft.TeamFoundation.VersionControl.Client;assembly=Microsoft.TeamFoundation.VersionControl.Client"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:taf="clr-namespace:TfsBuildExtensions.Activities.Framework;assembly=TfsBuildExtensions.Activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="WorkspaceName" Type="InArgument(x:String)" />
+    <x:Property Name="BuildDetail" Type="InArgument(mtbc:IBuildDetail)" />
+    <x:Property Name="BuildAgent" Type="InArgument(mtbc:IBuildAgent)" />
+    <x:Property Name="SourcesDirectory" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>EFC.Build.Version.Template.ProcessTemplate.Activity1_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>Microsoft.TeamFoundation.Build.Client</x:String>
+      <x:String>Microsoft.TeamFoundation.VersionControl.Client</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.TeamFoundation.Build.Client</AssemblyReference>
+      <AssemblyReference>Microsoft.TeamFoundation.Build.Workflow</AssemblyReference>
+      <AssemblyReference>Microsoft.TeamFoundation.VersionControl.Client</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Activities.Presentation</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>TfsBuildExtensions.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>EFC.Build.Version.Template.TFSActions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Apply Version Information" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="mtvc:Workspace" Name="workspace" />
+      <Variable x:TypeArguments="x:String" Name="localWorkspaceName">
+        <Variable.Default>
+          <mca:CSharpValue x:TypeArguments="x:String">WorkspaceName</mca:CSharpValue>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="assemblyInfoFiles" />
+    </Sequence.Variables>
+    <mtbwa:GetWorkspace sap2010:WorkflowViewState.IdRef="GetWorkspace_1" ThrowIfNotFound="True">
+      <mtbwa:GetWorkspace.Name>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">localWorkspaceName</mca:CSharpValue>
+        </InArgument>
+      </mtbwa:GetWorkspace.Name>
+      <mtbwa:GetWorkspace.Result>
+        <OutArgument x:TypeArguments="mtvc:Workspace">
+          <mca:CSharpReference x:TypeArguments="mtvc:Workspace">workspace</mca:CSharpReference>
+        </OutArgument>
+      </mtbwa:GetWorkspace.Result>
+    </mtbwa:GetWorkspace>
+    <mtbwa:FindMatchingFiles sap2010:WorkflowViewState.IdRef="FindMatchingFiles_1">
+      <mtbwa:FindMatchingFiles.MatchPattern>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">string.Format("{0}\\**\\assemblyinfo.cs", SourcesDirectory)</mca:CSharpValue>
+        </InArgument>
+      </mtbwa:FindMatchingFiles.MatchPattern>
+      <mtbwa:FindMatchingFiles.Result>
+        <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">
+          <mca:CSharpReference x:TypeArguments="scg:IEnumerable(x:String)">assemblyInfoFiles</mca:CSharpReference>
+        </OutArgument>
+      </mtbwa:FindMatchingFiles.Result>
+    </mtbwa:FindMatchingFiles>
+    <taf:AssemblyInfo AssemblyCompany="{x:Null}" AssemblyConfiguration="{x:Null}" AssemblyCopyright="{x:Null}" AssemblyCulture="{x:Null}" AssemblyDelaySign="{x:Null}" AssemblyDescription="{x:Null}" AssemblyFileVersions="{x:Null}" AssemblyInformationalVersion="{x:Null}" AssemblyInformationalVersions="{x:Null}" AssemblyKeyFile="{x:Null}" AssemblyKeyName="{x:Null}" AssemblyProduct="{x:Null}" AssemblyTitle="{x:Null}" AssemblyTrademark="{x:Null}" AssemblyVersions="{x:Null}" CLSCompliant="{x:Null}" ComVisible="{x:Null}" FailBuildOnError="{x:Null}" Guid="{x:Null}" IgnoreExceptions="{x:Null}" MaxAssemblyFileVersion="{x:Null}" MaxAssemblyInformationalVersion="{x:Null}" MaxAssemblyVersion="{x:Null}" TreatWarningsAsErrors="{x:Null}" AssemblyVersion="$(current) .$(current).$(increment).$(date:yyyy)" sap2010:WorkflowViewState.IdRef="AssemblyInfo_1" LogExceptionStack="True">
+      <taf:AssemblyInfo.AssemblyFileVersion>
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">"$(current).$(current).$(current)." + BuildDetail.SourceGetVersion.Replace("C", "")</mca:CSharpValue>
+        </InArgument>
+      </taf:AssemblyInfo.AssemblyFileVersion>
+      <taf:AssemblyInfo.Files>
+        <InArgument x:TypeArguments="scg:IEnumerable(x:String)">
+          <mca:CSharpValue x:TypeArguments="scg:IEnumerable(x:String)">assemblyInfoFiles</mca:CSharpValue>
+        </InArgument>
+      </taf:AssemblyInfo.Files>
+    </taf:AssemblyInfo>
+    <sads:DebugSymbol.Symbol>d15FOlxQcm9qZWN0c1xlZmNcdHJ1bmtcZGV2XEVGQy5CdWlsZC5WZXJzaW9uLlRlbXBsYXRlXHNyY1xURlNBY3Rpb25zXFVwZGF0ZUFzc2VtYmx5VmVyc2lvbi54YW1sDjcDZg4CAQE8CzxWAgECQQVMGgIBLk0FWB8CAR1ZBWQYAgEKSQtJYAIBOEFaQWACATdEC0RbAgEvUAtQhAECASZVC1VzAgEeYQthawIBFVnjBlnpBgIBFFntBVmfBgIBE1wLXJwBAgEL</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="GetWorkspace_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="FindMatchingFiles_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="AssemblyInfo_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="222,270">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="EFC.Build.Version.Template.ProcessTemplate.Activity1_1" sap:VirtualizedContainerService.HintSize="262,350" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Samples.WebInteraction", "EFC.Samples.WebInteraction\EFC.Samples.WebInteraction.csproj", "{D1B0ED4D-EBF4-46C7-9100-AB2FAC9E6E6F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{293DB31F-4A59-4F97-BC83-8F8F4A35F08D} = {293DB31F-4A59-4F97-BC83-8F8F4A35F08D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Wcf.Example", "Unity.Wcf.Example\Unity.Wcf.Example\Unity.Wcf.Example.csproj", "{293DB31F-4A59-4F97-BC83-8F8F4A35F08D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B0ED4D-EBF4-46C7-9100-AB2FAC9E6E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B0ED4D-EBF4-46C7-9100-AB2FAC9E6E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B0ED4D-EBF4-46C7-9100-AB2FAC9E6E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B0ED4D-EBF4-46C7-9100-AB2FAC9E6E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293DB31F-4A59-4F97-BC83-8F8F4A35F08D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293DB31F-4A59-4F97-BC83-8F8F4A35F08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293DB31F-4A59-4F97-BC83-8F8F4A35F08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293DB31F-4A59-4F97-BC83-8F8F4A35F08D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

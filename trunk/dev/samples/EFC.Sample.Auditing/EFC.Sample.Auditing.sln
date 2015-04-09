@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8D695B90-6D2C-4095-ADA7-752D835B62DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5405DDD1-F206-4C2B-AA02-757AF639FF1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Sample.Auditing", "src\EFC.Sample.Auditing\EFC.Sample.Auditing.csproj", "{DB5EE85A-91DE-47D2-AF66-C5C37E9DECA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Sample.Auditing.Services", "src\EFC.Sample.Auditing.Services\EFC.Sample.Auditing.Services.csproj", "{63F95DDE-3109-4540-8ACB-6F980F2808D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Sample.Auditing.Services.Contracts", "src\EFC.Sample.Auditing.Services.Contracts\EFC.Sample.Auditing.Services.Contracts.csproj", "{08E55C08-8FD7-4D71-A340-A40DFEBB215D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Sample.Auditing.Data.Contracts", "src\EFC.Sample.Auditing.Data.Contracts\EFC.Sample.Auditing.Data.Contracts.csproj", "{E2578610-F4A8-49F8-B81B-C8F87EBC89F1}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.experionglobal.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = src\\EFC.Sample.Auditing\\EFC.Sample.Auditing.csproj
+		SccProjectTopLevelParentUniqueName1 = EFC.Sample.Auditing.sln
+		SccProjectName1 = src/EFC.Sample.Auditing
+		SccLocalPath1 = src\\EFC.Sample.Auditing
+		SccProjectUniqueName2 = src\\EFC.Sample.Auditing.Services\\EFC.Sample.Auditing.Services.csproj
+		SccProjectTopLevelParentUniqueName2 = EFC.Sample.Auditing.sln
+		SccProjectName2 = src/EFC.Sample.Auditing.Services
+		SccLocalPath2 = src\\EFC.Sample.Auditing.Services
+		SccProjectUniqueName3 = src\\EFC.Sample.Auditing.Services.Contracts\\EFC.Sample.Auditing.Services.Contracts.csproj
+		SccProjectTopLevelParentUniqueName3 = EFC.Sample.Auditing.sln
+		SccProjectName3 = src/EFC.Sample.Auditing.Services.Contracts
+		SccLocalPath3 = src\\EFC.Sample.Auditing.Services.Contracts
+		SccProjectUniqueName4 = src\\EFC.Sample.Auditing.Data.Contracts\\EFC.Sample.Auditing.Data.Contracts.csproj
+		SccProjectTopLevelParentUniqueName4 = EFC.Sample.Auditing.sln
+		SccProjectName4 = src/EFC.Sample.Auditing.Data.Contracts
+		SccLocalPath4 = src\\EFC.Sample.Auditing.Data.Contracts
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB5EE85A-91DE-47D2-AF66-C5C37E9DECA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5EE85A-91DE-47D2-AF66-C5C37E9DECA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5EE85A-91DE-47D2-AF66-C5C37E9DECA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5EE85A-91DE-47D2-AF66-C5C37E9DECA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63F95DDE-3109-4540-8ACB-6F980F2808D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63F95DDE-3109-4540-8ACB-6F980F2808D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63F95DDE-3109-4540-8ACB-6F980F2808D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63F95DDE-3109-4540-8ACB-6F980F2808D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E55C08-8FD7-4D71-A340-A40DFEBB215D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E55C08-8FD7-4D71-A340-A40DFEBB215D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E55C08-8FD7-4D71-A340-A40DFEBB215D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E55C08-8FD7-4D71-A340-A40DFEBB215D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2578610-F4A8-49F8-B81B-C8F87EBC89F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2578610-F4A8-49F8-B81B-C8F87EBC89F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2578610-F4A8-49F8-B81B-C8F87EBC89F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2578610-F4A8-49F8-B81B-C8F87EBC89F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB5EE85A-91DE-47D2-AF66-C5C37E9DECA2} = {8D695B90-6D2C-4095-ADA7-752D835B62DA}
+		{63F95DDE-3109-4540-8ACB-6F980F2808D0} = {8D695B90-6D2C-4095-ADA7-752D835B62DA}
+		{08E55C08-8FD7-4D71-A340-A40DFEBB215D} = {8D695B90-6D2C-4095-ADA7-752D835B62DA}
+		{E2578610-F4A8-49F8-B81B-C8F87EBC89F1} = {8D695B90-6D2C-4095-ADA7-752D835B62DA}
+	EndGlobalSection
+EndGlobal
