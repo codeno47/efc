@@ -1,4 +1,13 @@
-﻿namespace EFC.Common.Testing
+﻿// ----------------------------------------------------------------------------
+// <copyright company="EFC" file ="TestHelperBase.cs">
+// All rights reserved Copyright 2015  Enterprise Foundation Classes
+// 
+// </copyright>
+//  <summary>
+//  The <see cref="TestHelperBase.cs"/> file.
+//  </summary>
+//  ---------------------------------------------------------------------------------------------
+namespace EFC.Common.Testing
 {
     using System.Configuration;
 

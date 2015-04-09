@@ -1,4 +1,13 @@
-﻿using System.Reflection;
+﻿// ----------------------------------------------------------------------------
+// <copyright company="EFC" file ="AssemblyInfo.cs">
+// All rights reserved Copyright 2015  Enterprise Foundation Classes
+// 
+// </copyright>
+//  <summary>
+//  The <see cref="AssemblyInfo.cs"/> file.
+//  </summary>
+//  ---------------------------------------------------------------------------------------------
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -8,9 +17,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("EFC.Common.Testing")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Experion Global P Ltd")]
+[assembly: AssemblyCompany("EFC")]
 [assembly: AssemblyProduct("EFC.Common.Testing")]
-[assembly: AssemblyCopyright("Copyright ©  Experion Global P Ltd 2015")]
+[assembly: AssemblyCopyright("Copyright ©  EFC 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +41,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

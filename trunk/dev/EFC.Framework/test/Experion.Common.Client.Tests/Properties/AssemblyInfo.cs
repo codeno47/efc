@@ -1,15 +1,24 @@
-﻿using System.Reflection;
+﻿// ----------------------------------------------------------------------------
+// <copyright company="EFC" file ="AssemblyInfo.cs">
+// All rights reserved Copyright 2015  Enterprise Foundation Classes
+// 
+// </copyright>
+//  <summary>
+//  The <see cref="AssemblyInfo.cs"/> file.
+//  </summary>
+//  ---------------------------------------------------------------------------------------------
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Experion.Common.Client.Tests")]
+[assembly: AssemblyTitle("EFC.Common.Client.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Experion.Common.Client.Tests")]
+[assembly: AssemblyProduct("EFC.Common.Client.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
