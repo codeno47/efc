@@ -65,19 +65,17 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
-      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
-      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation">
-      <HintPath>..\..\..\..\lib\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
