@@ -207,7 +207,7 @@
       <DependentUpon>AuditModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Logging\Data\AuditRepositoryContext.cs" />
-    <Compile Include="Logging\ExperionLogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="Messages.Designer.cs">
       <AutoGen>True</AutoGen>

@@ -1,10 +1,10 @@
 // ----------------------------------------------------------------------------
-// <copyright company="EFC" file ="ExperionLogger.cs">
+// <copyright company="EFC" file ="Logger.cs">
 // All rights reserved Copyright 2015  Enterprise Foundation Classes
 // 
 // </copyright>
 //  <summary>
-//  The <see cref="ExperionLogger.cs"/> file.
+//  The <see cref="Logger.cs"/> file.
 //  </summary>
 //  ---------------------------------------------------------------------------------------------
 using System.Diagnostics;
@@ -15,16 +15,16 @@ namespace EFC.Components.Logging
     /// <summary>
     /// Logger.
     /// </summary>
-    public static class ExperionLogger
+    public static class Logger
     {
         #region Methods
 
         /// <summary>
-        /// Initializes the <see cref="ExperionLogger"/> class.
+        /// Initializes the <see cref="Logger"/> class.
         /// </summary>
-        static ExperionLogger()
+        static Logger()
         {
-            Logger.SetLogWriter(new LogWriterFactory().Create());
+            Microsoft.Practices.EnterpriseLibrary.Logging.Logger.SetLogWriter(new LogWriterFactory().Create());
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace EFC.Components.Logging
         {
             var entry = new LogEntry { Message = message, Severity = eventType, Priority = servity, Title = activity };
 
-            Logger.Write(entry);
+            Microsoft.Practices.EnterpriseLibrary.Logging.Logger.Write(entry);
         }
 
         #endregion

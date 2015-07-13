@@ -58,11 +58,11 @@ namespace EFC.Components.Aspect
         /// <param name="args">Information about the method being executed.</param> 
         public override void OnException(MethodExecutionArgs args)
         {
-            ExperionLogger.WriteErrorLog(args.Exception.Message);
-            ExperionLogger.WriteErrorLog(args.Exception.StackTrace);
+            Logger.WriteErrorLog(args.Exception.Message);
+            Logger.WriteErrorLog(args.Exception.StackTrace);
 
             var innerExceptions = this.ParseException(args.Exception);
-            ExperionLogger.WriteErrorLog(innerExceptions);
+            Logger.WriteErrorLog(innerExceptions);
 
             ExceptionPolicy.HandleException(args.Exception, PolicyName);
         }

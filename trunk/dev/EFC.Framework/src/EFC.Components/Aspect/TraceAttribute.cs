@@ -131,7 +131,7 @@ namespace EFC.Components.Aspect
 
             lock (SyncLock)
             {
-                ExperionLogger.WriteTrace(messageBuilder.ToString());
+                Logger.WriteTrace(messageBuilder.ToString());
             }
         }
 
@@ -151,7 +151,7 @@ namespace EFC.Components.Aspect
 
             lock (SyncLock)
             {
-                ExperionLogger.WriteTrace(message);
+                Logger.WriteTrace(message);
             }
         }
 
