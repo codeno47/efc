@@ -68,10 +68,7 @@ namespace EFC.Components.Data
         /// <summary>
         /// Gets the entity framework Object Context.
         /// </summary>
-        private System.Data.Entity.Core.Objects.ObjectContext Context
-        {
-            get { return ((IObjectContextAdapter)DbContext).ObjectContext; }
-        }
+        private System.Data.Entity.Core.Objects.ObjectContext Context => ((IObjectContextAdapter)DbContext).ObjectContext;
 
         #endregion
 

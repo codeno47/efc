@@ -58,8 +58,7 @@ namespace EFC.Components.Data
         /// <returns></returns>
         public Task<int> CommitAsync()
         {
-            var savedRecords = Context.SaveChanges();
-            return new Task<int>(() => savedRecords);
+            return Context.SaveChangesAsync();
         }
 
         /// <summary>
@@ -84,9 +83,10 @@ namespace EFC.Components.Data
         }
 
         /// <summary>
-        /// Refreshes this instance.
+        /// Reloads currently loaded entities from databse.
+        /// Waring : Any unsaved data will be lost.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Status</returns>
         public int Refresh()
         {
             var refreshableObjects = GetRefreshableObjects();
@@ -108,6 +108,7 @@ namespace EFC.Components.Data
                     where entry.EntityKey != null
                     select entry.Entity);
         }
+
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>

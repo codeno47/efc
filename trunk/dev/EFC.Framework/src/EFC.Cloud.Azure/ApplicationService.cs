@@ -7,6 +7,9 @@
 //  The <see cref="ApplicationService.cs"/> file.
 //  </summary>
 //  ---------------------------------------------------------------------------------------------
+
+using System.Threading.Tasks;
+
 namespace EFC.Cloud.Azure
 {
     using System;
@@ -69,6 +72,15 @@ namespace EFC.Cloud.Azure
         protected int Save()
         {
             return this.DataContext.Commit();
+        }
+
+        /// <summary>
+        /// Saves the asynchronous.
+        /// </summary>
+        /// <returns></returns>
+        protected Task<int> SaveAsync()
+        {
+            return DataContext.CommitAsync();
         }
 
         /// <summary>

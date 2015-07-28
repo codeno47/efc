@@ -63,7 +63,10 @@ namespace EFC.Common.Service
         /// Saves this Current changes to database.
         /// </summary>
         /// <returns>Status code.</returns>
-        public abstract int Save();
+        public virtual int Save()
+        {
+            return 0;
+        }
 
         /// <summary>
         /// Gets the localized string.

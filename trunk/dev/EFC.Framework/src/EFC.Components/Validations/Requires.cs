@@ -13,7 +13,7 @@ namespace EFC.Components.Validations
     using System.Collections.Generic;
     using System.Linq;
 
-    using EFC.Components.Exception;
+    using Exception;
 
     /// <summary>
     /// The requires helper class.

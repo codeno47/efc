@@ -114,16 +114,12 @@ namespace EFC.Common.Service
         /// </summary>
         private void InitilizeContext()
         {
-            ////DataContext = RepositoryContext as EFRepositoryContext<TContext>;
-
             DataContext = RepositoryContext;
 
             if (DataContext == null)
             {
-                throw new ObjectNotDefinedException(string.Format("DataContext does not implement EFRepositoryContext"));
+                throw new ObjectNotDefinedException("DataContext does not implement EFRepositoryContext");
             }
-
-            ////DataContext.DbContext.Database.CreateIfNotExists();
         }
 
         /// <summary>

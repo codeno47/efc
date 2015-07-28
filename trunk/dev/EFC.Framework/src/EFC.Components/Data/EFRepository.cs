@@ -238,6 +238,8 @@ namespace EFC.Components.Data
         /// Attaches the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
+        /// <exception cref="InvalidExpressionException">Argument could not be default</exception>
+        /// <exception cref="OptimisticConcurrencyException"></exception>
         /// <exception cref="System.Data.InvalidExpressionException">Argument could not be default</exception>
         /// <exception cref="System.Data.OptimisticConcurrencyException"></exception>
         public override void Attach(TEntity entity)
@@ -263,6 +265,8 @@ namespace EFC.Components.Data
         /// Detaches the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
+        /// <exception cref="InvalidExpressionException">Argument could not be default</exception>
+        /// <exception cref="OptimisticConcurrencyException"></exception>
         /// <exception cref="System.Data.InvalidExpressionException">Argument could not be default</exception>
         /// <exception cref="System.Data.OptimisticConcurrencyException"></exception>
         public override void Detach(TEntity entity)

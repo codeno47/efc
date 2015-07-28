@@ -154,16 +154,5 @@ namespace EFC.Components.Aspect
                 Logger.WriteTrace(message);
             }
         }
-
-        ///// <summary> 
-        ///// Method invoked after failure of the method to which the current 
-        ///// aspect is applied. 
-        ///// </summary> 
-        ///// <param name="args">Unused.</param> 
-        ////public override void OnException(MethodExecutionArgs args)
-        ////{
-        ////    Trace.Unindent();
-        ////    Trace.TraceInformation("{0}: Exception {1}", this.methodName);
-        ////}
     }
 }
