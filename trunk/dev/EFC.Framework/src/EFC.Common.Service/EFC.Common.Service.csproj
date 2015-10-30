@@ -106,7 +106,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="key.pfx" />
     <None Include="packages.config" />
     <None Include="public_key.pfx" />
   </ItemGroup>

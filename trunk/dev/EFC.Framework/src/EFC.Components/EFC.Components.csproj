@@ -232,7 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="key.pfx" />
     <EntityDeploy Include="Logging\Data\AuditModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AuditModel.Designer.cs</LastGenOutput>
