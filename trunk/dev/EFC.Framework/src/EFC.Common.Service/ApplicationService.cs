@@ -52,7 +52,7 @@ namespace EFC.Common.Service
         /// <value>
         /// <c>true</c> if this instance is audit enabled; otherwise, <c>false</c>.
         /// </value>
-        private bool IsAuditEnabled { get; set; }
+        private Boolean IsAuditEnabled { get; set; }
 
         #endregion
 
@@ -76,7 +76,7 @@ namespace EFC.Common.Service
         {
             try
             {
-                IsAuditEnabled = Unity.Resolve<bool>("IsAuditEnabled");
+                IsAuditEnabled = Unity.Resolve<Boolean>("IsAuditEnabled");
             }
             catch (Exception)
             {
