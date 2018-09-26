@@ -1,12 +1,3 @@
-// ----------------------------------------------------------------------------
-// <copyright company="EFC" file ="MainViewModel.cs">
-// All rights reserved Copyright 2015  Enterprise Foundation Classes
-// 
-// </copyright>
-//  <summary>
-//  The <see cref="MainViewModel.cs"/> file.
-//  </summary>
-//  ---------------------------------------------------------------------------------------------
 using GalaSoft.MvvmLight;
 
 namespace EFC.Client.Common.ViewModel

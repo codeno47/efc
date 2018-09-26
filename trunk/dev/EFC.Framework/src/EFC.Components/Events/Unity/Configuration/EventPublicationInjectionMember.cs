@@ -9,10 +9,10 @@
 //  ---------------------------------------------------------------------------------------------
 namespace EFC.Components.Events.Unity.Configuration
 {
+    using global::Unity;
+    using global::Unity.Policy;
+    using global::Unity.Registration;
     using System;
-
-    using Microsoft.Practices.ObjectBuilder2;
-    using Microsoft.Practices.Unity;
 
     /// <summary>
     /// The event publication injection member.
@@ -51,13 +51,13 @@ namespace EFC.Components.Events.Unity.Configuration
         #region Methods
 
         /// <summary>
-        /// Add policies to the <paramref name="policies"/> to configure the container to call this constructor with the appropriate parameter values.
+        /// Adds the policies.
         /// </summary>
-        /// <param name="serviceType">Type of interface being registered. If no interface, this will be <see lang="null"/>.</param>
-        /// <param name="implementationType">Type of concrete type being registered.</param>
-        /// <param name="name">Name used to resolve the type object.</param>
-        /// <param name="policies">Policy list to add policies to.</param>
-        public override void AddPolicies(Type serviceType, Type implementationType, string name, IPolicyList policies)
+        /// <param name="serviceType">Type of the service.</param>
+        /// <param name="implementationType">Type of the implementation.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="policies">The policies.</param>
+        public override void AddPolicies(Type serviceType, Type implementationType, string name, global::Unity.Policy.IPolicyList policies)
         {
             Type targetType = implementationType ?? serviceType;
 

@@ -15,9 +15,8 @@ namespace EFC.Cloud.Azure
     using System;
 
     using EFC.Components.Exception;
-
-    using Microsoft.Practices.Unity;
     using Microsoft.WindowsAzure.MobileServices;
+    using Unity;
 
     /// <summary>
     /// ApplicationService base.

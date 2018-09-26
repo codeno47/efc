@@ -12,6 +12,7 @@ using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight;
 using Microsoft.Practices.Unity;
+using Unity;
 
 namespace EFC.Client.Common.Base
 {

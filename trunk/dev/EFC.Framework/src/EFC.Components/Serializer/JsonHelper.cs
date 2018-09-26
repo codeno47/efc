@@ -27,7 +27,7 @@ namespace EFC.Components.Serializer
         /// <typeparam name="T"></typeparam>
         /// <param name="objectToSerialize">The object to serialize.</param>
         /// <returns></returns>
-        public static Task<string> JsonSerializerAsync<T>(T objectToSerialize)
+        public static string JsonSerializer<T>(T objectToSerialize)
         {
             return JsonSerializerInternal(objectToSerialize);
         }
@@ -49,20 +49,9 @@ namespace EFC.Components.Serializer
         /// <typeparam name="T"></typeparam>
         /// <param name="objectToSerialize">The ObjectToSerialize.</param>
         /// <returns></returns>
-        private static async Task<string> JsonSerializerInternal<T>(T objectToSerialize)
+        private static string JsonSerializerInternal<T>(T objectToSerialize)
         {
-            return await JsonConvert.SerializeObjectAsync(objectToSerialize);
-        }
-
-        /// <summary>
-        /// JSON Deserialization
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="jsonString">The json string.</param>
-        /// <returns></returns>
-        public static Task<T> JsonDeserializeAsync<T>(string jsonString)
-        {
-            return JsonConvert.DeserializeObjectAsync<T>(jsonString);
+            return JsonConvert.SerializeObject(objectToSerialize);
         }
 
         /// <summary>

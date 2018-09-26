@@ -14,7 +14,8 @@ using System.ComponentModel;
 using System.Linq;
 using EFC.Components.ComponentModel;
 using EFC.Components.Events;
-using Microsoft.Practices.Unity;
+using Unity;
+using Unity.Lifetime;
 
 namespace EFC.Components.Extensibility
 {

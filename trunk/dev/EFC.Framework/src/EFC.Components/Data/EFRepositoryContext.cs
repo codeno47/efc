@@ -22,7 +22,7 @@ namespace EFC.Components.Data
     using EFC.Components.Logging.Data;
 
     using EntityFramework.Extensions;
-
+    using global::Unity;
     using Microsoft.Practices.Unity;
 
     /// <summary>

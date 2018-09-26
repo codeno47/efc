@@ -7,7 +7,7 @@
 //  The <see cref="ControllerBase`1.cs"/> file.
 //  </summary>
 //  ---------------------------------------------------------------------------------------------
-using Microsoft.Practices.Unity;
+using Unity;
 
 namespace EFC.Client.Common.Base.Controllers
 {

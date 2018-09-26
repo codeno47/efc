@@ -8,8 +8,8 @@
 //  </summary>
 //  ---------------------------------------------------------------------------------------------
 using System.Configuration;
-using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Unity;
 
 namespace EFC.Components.Unity
 {

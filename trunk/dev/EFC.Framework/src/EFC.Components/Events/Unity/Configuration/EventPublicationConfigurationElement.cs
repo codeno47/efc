@@ -11,8 +11,8 @@ namespace EFC.Components.Events.Unity.Configuration
 {
     using System;
     using System.Configuration;
-
-    using Microsoft.Practices.Unity;
+    using global::Unity;
+    using global::Unity.Registration;
 
     /// <summary>
     /// The event publication configuration element.

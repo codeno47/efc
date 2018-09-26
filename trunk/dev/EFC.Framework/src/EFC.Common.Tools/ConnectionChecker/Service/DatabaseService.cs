@@ -14,7 +14,7 @@ using System.Text;
 using EFC.Common.Service;
 using EFC.Components.Aspect;
 using Experion.Common.Tools.ConnectionChecker.Service;
-using Microsoft.Practices.Unity;
+using Unity;
 
 namespace EFC.Common.Tools.ConnectionChecker.Service
 {

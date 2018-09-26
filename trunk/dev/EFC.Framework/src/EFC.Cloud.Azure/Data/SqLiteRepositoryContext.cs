@@ -16,6 +16,7 @@ namespace EFC.Cloud.Azure.Data
 
     using Microsoft.Practices.Unity;
     using Microsoft.WindowsAzure.MobileServices;
+    using Unity;
 
     /// <summary>
     /// SQLiteRepositoryContext.

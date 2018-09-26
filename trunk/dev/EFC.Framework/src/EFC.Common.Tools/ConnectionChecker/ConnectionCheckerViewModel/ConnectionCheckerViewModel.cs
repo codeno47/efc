@@ -12,7 +12,7 @@ using EFC.Client.Common.Base;
 using Experion.Common.Tools.ConnectionChecker.ConnectionCheckerViewModel;
 using Experion.Common.Tools.ConnectionChecker.Service;
 using GalaSoft.MvvmLight.Command;
-using Microsoft.Practices.Unity;
+using Unity;
 
 namespace EFC.Common.Tools.ConnectionChecker.ConnectionCheckerViewModel
 {

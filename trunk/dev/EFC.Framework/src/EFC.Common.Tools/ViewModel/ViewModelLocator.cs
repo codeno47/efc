@@ -1,15 +1,19 @@
-// ----------------------------------------------------------------------------
-// <copyright company="EFC" file ="ViewModelLocator.cs">
-// All rights reserved Copyright 2015  Enterprise Foundation Classes
-// 
-// </copyright>
-//  <summary>
-//  The <see cref="ViewModelLocator.cs"/> file.
-//  </summary>
-//  ---------------------------------------------------------------------------------------------
-using GalaSoft.MvvmLight;
+/*
+  In App.xaml:
+  <Application.Resources>
+      <vm:ViewModelLocator xmlns:vm="clr-namespace:EFC.Common.Tools"
+                           x:Key="Locator" />
+  </Application.Resources>
+  
+  In the View:
+  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
+
+  You can also use Blend to do all this with the tool's support.
+  See http://www.galasoft.ch/mvvm
+*/
+
+using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EFC.Common.Tools.ViewModel
 {

@@ -10,6 +10,7 @@
 using Microsoft.Practices.Unity;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Unity;
 
 namespace EFC.Common.Service.Test
 {
@@ -66,7 +67,7 @@ namespace EFC.Common.Service.Test
         /// <summary>
         /// Executes Befores all test.
         /// </summary>
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         protected virtual void BeforeAllTest()
         {
             Service = CreateTestContext();
@@ -93,7 +94,7 @@ namespace EFC.Common.Service.Test
         /// <summary>
         /// Executes Afters all test.
         /// </summary>
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         protected virtual void AfterAllTest()
         {
             Dispose();

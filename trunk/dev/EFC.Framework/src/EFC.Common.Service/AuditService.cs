@@ -18,6 +18,7 @@ namespace EFC.Common.Service
     using EFC.Components.Data;
     using EFC.Components.Logging;
     using EFC.Components.Logging.Data;
+    using Unity;
 
     /// <summary>
     /// Application Service

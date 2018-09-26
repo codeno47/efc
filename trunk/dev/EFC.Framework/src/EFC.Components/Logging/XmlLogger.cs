@@ -12,7 +12,7 @@ namespace EFC.Components.Logging
     using System.Data;
     using System.Data.SqlClient;
     using System.IO;
-
+    using global::Unity;
     using Microsoft.Practices.Unity;
 
     /// <summary>

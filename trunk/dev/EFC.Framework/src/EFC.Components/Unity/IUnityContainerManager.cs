@@ -8,7 +8,7 @@
 //  </summary>
 //  ---------------------------------------------------------------------------------------------
 using System;
-using Microsoft.Practices.Unity;
+using Unity;
 
 namespace EFC.Components.Unity
 {

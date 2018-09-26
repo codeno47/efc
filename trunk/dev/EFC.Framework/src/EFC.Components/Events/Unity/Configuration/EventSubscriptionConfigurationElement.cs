@@ -11,7 +11,8 @@ namespace EFC.Components.Events.Unity.Configuration
 {
     using System;
     using System.Configuration;
-
+    using global::Unity;
+    using global::Unity.Registration;
     using Microsoft.Practices.Unity;
 
     /// <summary>

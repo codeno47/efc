@@ -11,6 +11,7 @@ using System;
 using System.Resources;
 using EFC.Components.Exception;
 using Microsoft.Practices.Unity;
+using Unity;
 
 namespace EFC.Common.Service
 {

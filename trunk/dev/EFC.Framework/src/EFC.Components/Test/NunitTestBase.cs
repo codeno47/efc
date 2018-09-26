@@ -8,9 +8,9 @@
 //  </summary>
 //  ---------------------------------------------------------------------------------------------
 using System;
-using Microsoft.Practices.Unity;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Unity;
 
 namespace EFC.Components.Test
 {
@@ -50,7 +50,7 @@ namespace EFC.Components.Test
         /// <summary>
         /// Executes Befores all test.
         /// </summary>
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         protected virtual void BeforeAllTest()
         {
 
@@ -77,7 +77,7 @@ namespace EFC.Components.Test
         /// <summary>
         /// Executes Afters all test.
         /// </summary>
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         protected virtual void AfterAllTest()
         {
             Dispose();

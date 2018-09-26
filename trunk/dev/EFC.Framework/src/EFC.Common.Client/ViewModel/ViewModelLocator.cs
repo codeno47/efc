@@ -7,9 +7,8 @@
 //  The <see cref="ViewModelLocator.cs"/> file.
 //  </summary>
 //  ---------------------------------------------------------------------------------------------
-using GalaSoft.MvvmLight;
+using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
 
 namespace EFC.Client.Common.ViewModel
 {

@@ -10,8 +10,7 @@
 namespace EFC.Components.Logging.Data
 {
     using EFC.Components.Data;
-
-    using Microsoft.Practices.Unity;
+    using global::Unity;
 
     /// <summary>
     /// AuditRepositoryContext.
