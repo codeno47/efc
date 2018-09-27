@@ -30,7 +30,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Common.Client.Tests", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "package", "package", "{5CDD9FB0-9EE9-42EF-B780-AA50DA399549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Service.PackageBuild", "EFC.Service.Package\EFC.Service.PackageBuild.csproj", "{4D3FC2D6-88BD-41C4-904C-23E78A6B7953}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFC.Service.PackageBuild", "package\EFC.Service.Package\EFC.Service.PackageBuild.csproj", "{4D3FC2D6-88BD-41C4-904C-23E78A6B7953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,7 +145,7 @@ Global
 		{4D3FC2D6-88BD-41C4-904C-23E78A6B7953} = {5CDD9FB0-9EE9-42EF-B780-AA50DA399549}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4E0D36B4-99CD-47E6-9BED-3E8D149C3847}
 		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.ExceptionHandling.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45
+		SolutionGuid = {4E0D36B4-99CD-47E6-9BED-3E8D149C3847}
 	EndGlobalSection
 EndGlobal

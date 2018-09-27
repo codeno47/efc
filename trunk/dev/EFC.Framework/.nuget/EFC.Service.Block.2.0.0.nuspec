@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>EFC.Service.Block</id>
+    <version>2.0.0</version>
+    <title>EFC-Service Block</title>
+    <authors>Binu Bhasuran</authors>
+    <owners>Binu Bhasuran</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/codeno47/efc/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/codeno47/efc</projectUrl>
+    <iconUrl>https://cfnhpg-ch3301.files.1drv.com/y3m05mZ2uwER5BSu8lM6CfGIpKcuvGsoVnHr94iO1or-YPF74gzUyn4446NwV7az4FUeThTwLET1_eN5tJ6WxqS1CSUYWr34DHrkqvUfrEjBM7ZHoAziB5K7nVvelt6bbF5oFR_HEe0QiAOFMPdjzgNxX2frFR_tX9ucsAN_qleDdQ?width=68&amp;height=68&amp;cropmode=none</iconUrl>
+    <description>EFC Service application block. Includes compoents such as Data acccess, Exception handling, Logging, Audting etc</description>
+    <summary>EFC Service application block. Includes compoents such as Data acccess, Exception handling, Logging, Audting etc</summary>
+    <releaseNotes>Signed dlls</releaseNotes>
+    <copyright>Binu Bhasuran</copyright>
+    <language>en-US</language>
+    <tags>Unity  EntLib EntLib6 IoC DI container dependency injection inversion control LOB WinRT Win8 Windows8 Azure</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.1">
+        <dependency id="PostSharp" version="6.0.27" />
+        <dependency id="Unity" version="5.8.11" />
+        <dependency id="Newtonsoft.Json" version="11.0.2" />
+        <dependency id="EntityFramework" version="6.2.0" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Web" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Activation" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Configuration" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="D:\Projects\efc\trunk\Workspace\bin\EFC.Common.Service.dll" target="lib\net45\EFC.Common.Service.dll" />
+    <file src="D:\Projects\efc\trunk\Workspace\bin\EFC.Components.dll" target="lib\net45\EFC.Components.dll" />
+  </files>
+</package>
